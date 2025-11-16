@@ -1,106 +1,110 @@
-import { Button } from "@/components/ui/button";
-import { Truck, Package, Warehouse, Route, Container, MessageCircle } from "lucide-react";
+import { Truck, Package, Warehouse, MapPin, Shield, Clock } from "lucide-react";
 
-const Services = () => {
+export default function Services() {
   const services = [
     {
       icon: Truck,
       title: "Transporte de Carga Pesada",
-      description: "Transporte especializado de carga pesada y sobredimensionada con equipos certificados y personal capacitado.",
-      features: ["Hasta 30 toneladas", "Equipos especializados", "Rutas optimizadas"]
-    },
-    {
-      icon: Route,
-      title: "Transporte Nacional",
-      description: "Cobertura completa desde Lima hacia todas las regiones del Perú con tiempos de entrega garantizados.",
-      features: ["Lima - Provincias", "Seguimiento GPS", "Entrega puntual"]
+      description: "Soluciones especializadas para cargas pesadas y sobredimensionadas con equipos de última generación.",
+      color: "from-red-600 to-red-700"
     },
     {
       icon: Package,
-      title: "Última Milla",
-      description: "Servicio de reparto y distribución directa hasta el destino final de tus productos.",
-      features: ["Distribución urbana", "Entrega programada", "Confirmación de recepción"]
+      title: "Transporte Primario",
+      description: "Servicios de transporte desde Lima hacia diversos lugares del país con máxima seguridad.",
+      color: "from-blue-600 to-blue-700"
     },
     {
-      icon: Container,
-      title: "Cross-Docking",
-      description: "Operación logística sin almacenamiento prolongado para optimizar tiempos y costos de distribución.",
-      features: ["Sin almacenaje", "Proceso rápido", "Reducción de costos"]
+      icon: MapPin,
+      title: "Reparto - Última Milla",
+      description: "Distribución final de mercancías a diferentes zonas del país con entrega puntual garantizada.",
+      color: "from-green-600 to-green-700"
     },
     {
       icon: Warehouse,
-      title: "Almacenamiento Transitorio",
-      description: "Soluciones de almacenaje temporal seguro para tus mercancías con control de inventario.",
-      features: ["Almacén seguro", "Control de inventario", "Gestión profesional"]
+      title: "Almacenaje Transitorio",
+      description: "Espacios seguros para almacenamiento temporal de tu carga con control de inventario.",
+      color: "from-yellow-600 to-yellow-700"
     },
     {
-      icon: Truck,
-      title: "Logística Integral",
-      description: "Soluciones logísticas completas adaptadas a las necesidades específicas de tu negocio.",
-      features: ["Asesoría personalizada", "Soluciones a medida", "Servicio completo"]
+      icon: Package,
+      title: "Cross Docking",
+      description: "Servicio de transferencia rápida de mercancías entre unidades de transporte.",
+      color: "from-purple-600 to-purple-700"
+    },
+    {
+      icon: Shield,
+      title: "Seguimiento 24/7",
+      description: "Tracking GPS en tiempo real de tus envíos con atención personalizada las 24 horas.",
+      color: "from-cyan-600 to-cyan-700"
     }
   ];
 
-  const whatsappNumber = "51999999999";
-  const whatsappMessage = encodeURIComponent("Hola, me gustaría solicitar una cotización de servicios de transporte.");
-
   return (
-    <section id="services" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+    <section className="bg-white py-20 px-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Nuestros Servicios
           </h2>
-          <p className="text-xl text-muted-foreground">
-            Soluciones logísticas integrales diseñadas para optimizar tu cadena de suministro
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            Brindamos soluciones logísticas especializadas en el transporte y distribución de carga a nivel nacional
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {services.map((service, index) => (
-            <div 
-              key={index}
-              className="bg-card rounded-2xl p-8 shadow-md hover-lift group"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <div className="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-smooth">
-                <service.icon className="w-8 h-8 text-white" />
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {services.map((service, idx) => {
+            const Icon = service.icon;
+            return (
+              <div
+                key={idx}
+                className="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 overflow-hidden"
+              >
+                {/* Top Bar */}
+                <div className={`h-2 bg-gradient-to-r ${service.color}`}></div>
+
+                {/* Content */}
+                <div className="p-8">
+                  {/* Icon */}
+                  <div className={`w-16 h-16 rounded-lg bg-gradient-to-br ${service.color} text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                    <Icon size={32} />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {service.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
               </div>
-              
-              <h3 className="text-2xl font-bold text-card-foreground mb-3">
-                {service.title}
-              </h3>
-              
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                {service.description}
-              </p>
-              
-              <ul className="space-y-2">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center text-sm text-muted-foreground">
-                    <div className="w-1.5 h-1.5 rounded-full bg-secondary mr-3"></div>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        <div className="text-center">
-          <Button 
-            size="xl" 
-            variant="whatsapp"
-            className="group"
-            onClick={() => window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank')}
-          >
-            <MessageCircle className="group-hover:scale-110 transition-transform" />
-            Solicitar Cotización por WhatsApp
-          </Button>
+        {/* Bottom CTA */}
+        <div className="bg-gradient-to-r from-blue-900 to-blue-950 rounded-lg p-12 text-center">
+          <h3 className="text-3xl font-bold text-white mb-4">
+            ¿Necesitas un servicio personalizado?
+          </h3>
+          <p className="text-blue-100 mb-8 text-lg">
+            Nuestro equipo de especialistas está listo para adaptar soluciones a tus necesidades específicas
+          </p>
+          <div className="flex gap-4 justify-center flex-wrap">
+            <button className="px-8 py-3 bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-bold rounded-lg transition-all">
+              Cotizar Ahora
+            </button>
+            <button className="px-8 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg transition-all">
+              WhatsApp
+            </button>
+          </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default Services;
+}

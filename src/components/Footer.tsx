@@ -1,106 +1,150 @@
-import { Truck, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Linkedin, MessageCircle, Phone, Mail, MapPin } from "lucide-react";
+import logo from "@/assets/logo.png";
 
-const Footer = () => {
+export default function Footer() {
+  const whatsappNumber = "51999999999";
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-white pt-16 pb-8">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          {/* Company Info */}
+    <footer className="bg-blue-950 text-white py-16 px-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Main Footer Content */}
+        <div className="grid md:grid-cols-2 gap-16 mb-12">
+          {/* Left Section - Logo and Info */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Truck className="w-8 h-8 text-secondary" />
-              <span className="text-2xl font-bold">HURIANKA</span>
+            {/* Logo - Large */}
+            <div className="mb-8">
+              <img src={logo} alt="HURIANKA Logo" className="w-full max-w-md h-auto" />
             </div>
-            <p className="text-white/80 mb-4 text-sm leading-relaxed">
-              Soluciones logísticas y transporte de carga confiables para todo el Perú. 
-              Más que un servicio, una solución.
+
+            {/* Description */}
+            <p className="text-gray-300 text-sm leading-relaxed mb-6">
+              Soluciones logísticas y transporte de carga confiables para todo el Perú. Más que un servicio, una solución.
             </p>
-            <p className="text-white/60 text-xs">
-              RUC: 20614054108
+
+            {/* RUC */}
+            <p className="text-gray-400 text-sm">
+              <span className="text-yellow-400 font-semibold">RUC:</span> 20614054108
             </p>
+
+            {/* Contact Info */}
+            <div className="mt-8 space-y-3">
+              <div className="flex items-center gap-3">
+                <Phone size={18} className="text-yellow-400" />
+                <span className="text-gray-300 text-sm">01 3870484</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <MessageCircle size={18} className="text-yellow-400" />
+                <span className="text-gray-300 text-sm">971068409 / 998179972 / 998179928</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Mail size={18} className="text-yellow-400" />
+                <span className="text-gray-300 text-sm">presupuestos@transxiomara.com</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <MapPin size={18} className="text-yellow-400 mt-1 flex-shrink-0" />
+                <span className="text-gray-300 text-sm">Av Simon bolivar 450 - interior 1002, Santa Clara - Ate - Lima</span>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex gap-4 mt-8">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-white/10 hover:bg-yellow-400 rounded-lg flex items-center justify-center transition-all text-white hover:text-blue-950"
+              >
+                <Facebook size={20} />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-white/10 hover:bg-yellow-400 rounded-lg flex items-center justify-center transition-all text-white hover:text-blue-950"
+              >
+                <Linkedin size={20} />
+              </a>
+              <a
+                href={`https://wa.me/${whatsappNumber}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-green-500 hover:bg-green-600 rounded-lg flex items-center justify-center transition-all text-white"
+              >
+                <MessageCircle size={20} />
+              </a>
+            </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Right Section - Quick Links */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Enlaces Rápidos</h3>
-            <ul className="space-y-2 text-sm">
-              {[
-                { label: "Inicio", href: "#" },
-                { label: "Quiénes Somos", href: "#about" },
-                { label: "Servicios", href: "#services" },
-                { label: "Nuestra Flota", href: "#fleet" },
-                { label: "Tecnología", href: "#technology" },
-                { label: "Contacto", href: "#contact" }
-              ].map((link, index) => (
-                <li key={index}>
-                  <a 
-                    href={link.href} 
-                    className="text-white/80 hover:text-secondary transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <h3 className="text-xl font-bold text-white mb-8">Enlaces Rápidos</h3>
 
-          {/* Services */}
-          <div>
-            <h3 className="font-bold text-lg mb-4">Servicios</h3>
-            <ul className="space-y-2 text-sm text-white/80">
-              <li>Transporte de Carga Pesada</li>
-              <li>Transporte Nacional</li>
-              <li>Última Milla</li>
-              <li>Cross-Docking</li>
-              <li>Almacenamiento</li>
-              <li>Logística Integral</li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h3 className="font-bold text-lg mb-4">Contacto</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" />
-                <span className="text-white/80">
-                  Av. Simón Bolívar 450 - Int. 1002<br />
-                  Santa Clara - Ate - Lima
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-secondary flex-shrink-0" />
-                <span className="text-white/80">+51 999 999 999</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-secondary flex-shrink-0" />
-                <span className="text-white/80">contacto@hurianka.com</span>
-              </li>
-            </ul>
+            <div className="grid grid-cols-1 gap-4">
+              <a
+                href="#inicio"
+                className="text-gray-300 hover:text-yellow-400 transition-colors text-sm"
+              >
+                Inicio
+              </a>
+              <a
+                href="#about"
+                className="text-gray-300 hover:text-yellow-400 transition-colors text-sm"
+              >
+                Quiénes Somos
+              </a>
+              <a
+                href="#services"
+                className="text-gray-300 hover:text-yellow-400 transition-colors text-sm"
+              >
+                Servicios
+              </a>
+              <a
+                href="#fleet"
+                className="text-gray-300 hover:text-yellow-400 transition-colors text-sm"
+              >
+                Nuestra Flota
+              </a>
+              <a
+                href="#technology"
+                className="text-gray-300 hover:text-yellow-400 transition-colors text-sm"
+              >
+                Tecnología
+              </a>
+              <a
+                href="#contact"
+                className="text-gray-300 hover:text-yellow-400 transition-colors text-sm"
+              >
+                Contacto
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/60">
-            <p>
-              © {currentYear} HURIANKA S.A.C. Todos los derechos reservados para ellos.
-            </p>
-            <div className="flex gap-6">
-              <a href="#" className="hover:text-secondary transition-colors">
-                Política de Privacidad
-              </a>
-              <a href="#" className="hover:text-secondary transition-colors">
-                Términos y Condiciones
-              </a>
-            </div>
+        {/* Divider */}
+        <div className="border-t border-white/20 my-8"></div>
+
+        {/* Bottom Footer */}
+        <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4">
+          <p className="text-gray-400 text-sm">
+            © {currentYear} HURIANKA S.A.C. Todos los derechos reservados.
+          </p>
+
+          <p className="text-gray-400 text-sm">
+            Soluciones logísticas y transporte de carga confiables para todo el Perú
+          </p>
+
+          <div className="flex gap-4">
+            <a href="#" className="text-gray-400 hover:text-yellow-400 text-sm transition-colors">
+              Privacidad
+            </a>
+            <span className="text-gray-400">|</span>
+            <a href="#" className="text-gray-400 hover:text-yellow-400 text-sm transition-colors">
+              Términos
+            </a>
           </div>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}
