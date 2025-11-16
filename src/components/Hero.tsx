@@ -2,7 +2,7 @@ import { MessageCircle, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/fondo.png";
 
 export default function Hero() {
-  const whatsappNumber = "51999999999";
+  const whatsappNumber = "51923987360";
   const whatsappMessage = encodeURIComponent("Hola, me gustaría solicitar información sobre sus servicios de transporte y logística.");
 
   return (

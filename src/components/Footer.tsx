@@ -2,7 +2,7 @@ import { Facebook, Linkedin, MessageCircle, Phone, Mail, MapPin } from "lucide-r
 import logo from "@/assets/aqui.png";
 
 export default function Footer() {
-  const whatsappNumber = "51999999999";
+  const whatsappNumber = "51923987360";
   const currentYear = new Date().getFullYear();
 
   return (
@@ -35,7 +35,7 @@ export default function Footer() {
             <div className="mt-8 space-y-3">
               <div className="flex items-center gap-3">
                 <Phone size={18} className="text-yellow-400" />
-                <span className="text-gray-300 text-sm">01 3870484</span>
+                <span className="text-gray-300 text-sm">+51 923 987 360</span>
               </div>
               <div className="flex items-center gap-3">
                 <MessageCircle size={18} className="text-yellow-400" />

@@ -2,7 +2,8 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, Clock, Package, Headphones } from "lucide-react";
 
 const WhatsAppSection = () => {
-  const whatsappNumber = "51999999999"; // Replace with actual number
+  const whatsappNumber = "51923987360";
+
   const whatsappMessage = encodeURIComponent("Hola, necesito información sobre sus servicios de transporte.");
 
   const benefits = [
