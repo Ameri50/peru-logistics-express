@@ -1,5 +1,5 @@
 import { Facebook, Linkedin, MessageCircle, Phone, Mail, MapPin } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/aqui.png";
 
 export default function Footer() {
   const whatsappNumber = "51999999999";
@@ -12,9 +12,13 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 gap-16 mb-12">
           {/* Left Section - Logo and Info */}
           <div>
-            {/* Logo - Large */}
-            <div className="mb-8">
-              <img src={logo} alt="HURIANKA Logo" className="w-full max-w-md h-auto" />
+            {/* Logo Section */}
+            <div className="mb-12 flex items-center gap-6">
+              <img src={logo} alt="HURIANKA Logo" className="h-20 md:h-32 object-contain" />
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-white">HURIANKA</h2>
+                <p className="text-yellow-400 text-sm md:text-base">Soluciones Logísticas</p>
+              </div>
             </div>
 
             {/* Description */}

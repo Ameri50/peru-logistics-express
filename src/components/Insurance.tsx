@@ -102,27 +102,14 @@ export default function Insurance() {
                 <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${insurance.color} opacity-5 rounded-full blur-3xl group-hover:opacity-10 transition-all`}></div>
 
                 <div className="relative p-8 flex flex-col h-full">
-                  {/* Logo Icon & Title */}
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="text-3xl font-black">
-                      {insurance.logo === "RIMAC" ? (
-                        <div className="text-center">
-                          <span className="text-gray-900">RI</span>
-                          <span className="text-red-600 text-4xl">M</span>
-                          <span className="text-gray-900">AC</span>
-                        </div>
-                      ) : (
-                        <div className="text-orange-500">{insurance.logo}</div>
-                      )}
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-gray-900 group-hover:text-blue-900 transition-colors">
-                        {insurance.title}
-                      </h3>
-                      <p className="text-sm text-gray-600 mt-1 font-semibold">
-                        {insurance.subtitle}
-                      </p>
-                    </div>
+                  {/* Title */}
+                  <div className="flex-1 mb-4">
+                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-blue-900 transition-colors">
+                      {insurance.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 mt-1 font-semibold">
+                      {insurance.subtitle}
+                    </p>
                   </div>
 
                   {/* Coverage Badge */}
