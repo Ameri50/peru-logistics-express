@@ -1,115 +1,212 @@
-import { MessageCircle, ArrowRight } from "lucide-react";
-// SI LA IMAGEN ESTÁ EN SRC/ASSETS, ACTIVA ESTO:
-// import fondo from "../assets/fondo.png";
+"use client";
+
+import { useState } from "react";
+import { MessageCircle, ArrowRight, Menu, X, Search } from "lucide-react";
 
 export default function Hero() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [query, setQuery] = useState("");
+
   const whatsappNumber = "51923987360";
   const whatsappMessage = encodeURIComponent(
     "Hola, me gustaría solicitar información sobre sus servicios de transporte y logística."
   );
 
+  // Secciones disponibles
+  const sections = [
+    { label: "Servicios", id: "services" },
+    { label: "Nosotros", id: "about" },
+    { label: "Flota", id: "fleet" },
+    { label: "Tecnología", id: "technology" },
+    { label: "Seguro", id: "insurance" },
+    { label: "Contacto", id: "contact" },
+  ];
+
+  // Función scroll suave
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // Lógica de búsqueda
+  const handleSearch = () => {
+    const match = sections.find((s) =>
+      s.label.toLowerCase().includes(query.toLowerCase())
+    );
+
+    if (match) {
+      scrollTo(match.id);
+      setSearchOpen(false);
+      setQuery("");
+    } else {
+      alert("No se encontró: " + query);
+    }
+  };
+
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <>
+      {/* NAVBAR */}
+      <header className="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-md border-b border-white/10">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
 
-      {/* Full Background Image */}
-      <img
-        // Usa ESTA línea si la imagen está en /public
-        src="/fondo.png"
-
-        // Usa ESTA si está en src/assets/
-        // src={fondo}
-
-        alt="Transporte de carga profesional"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
-
-      {/* Hero Content */}
-      <div className="relative z-10 w-full h-full flex items-center justify-start px-6 sm:px-8 md:px-12 lg:px-16">
-        <div className="w-full max-w-sm sm:max-w-md md:max-w-lg space-y-6">
-
-          {/* Tagline */}
-          <div className="inline-block">
-            <span className="text-yellow-400 font-bold text-xs uppercase tracking-wider px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full">
-              ¡Más que un servicio, una solución!
-            </span>
-          </div>
-
-          {/* Title */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg">
-            Soluciones Logísticas y Transporte de Carga
-            <span className="block text-yellow-400 mt-1">
-              Confiables para todo el Perú
-            </span>
+          {/* Logo */}
+          <h1
+            onClick={() => scrollTo("top")}
+            className="text-white font-bold text-xl tracking-wide cursor-pointer"
+          >
+            
           </h1>
 
-          {/* Description */}
-          <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed drop-shadow-md">
-            Seguridad, puntualidad y tecnología al servicio de tus envíos.
-            Monitoreo GPS 24/7 y atención personalizada.
-          </p>
-
-          {/* Buttons */}
-          <div className="flex flex-col gap-3 pt-2">
-            <button
-              onClick={() =>
-                document.getElementById("contact")?.scrollIntoView({
-                  behavior: "smooth",
-                })
-              }
-              className="px-6 py-3 sm:py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg flex items-center justify-center gap-2 transition-all text-sm sm:text-base group shadow-lg"
-            >
-              Cotizar Servicio
-              <ArrowRight
-                size={18}
-                className="group-hover:translate-x-1 transition-transform"
-              />
-            </button>
-
-            <button
-              onClick={() =>
-                window.open(
-                  `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`,
-                  "_blank"
-                )
-              }
-              className="px-6 py-3 sm:py-3.5 bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg flex items-center justify-center gap-2 transition-all text-sm sm:text-base group shadow-lg"
-            >
-              <MessageCircle
-                size={18}
-                className="group-hover:scale-110 transition-transform"
-              />
-              Atención por WhatsApp 24/7
-            </button>
-          </div>
-
-          {/* Trust Indicators */}
-          <div className="grid grid-cols-2 gap-3 pt-4">
-            {[
-              { label: "GPS 24/7", value: "Tracking" },
-              { label: "Seguro", value: "$12M" },
-              { label: "Cobertura", value: "Nacional" },
-              { label: "Experiencia", value: "Confiable" },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 text-center border border-white/20 hover:bg-white/20 transition-all shadow-lg"
+          {/* Desktop Menu */}
+          <nav className="hidden md:flex items-center gap-6 text-white">
+            {sections.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className="hover:text-yellow-400"
               >
-                <div className="text-lg sm:text-xl md:text-2xl font-bold text-yellow-400 mb-0.5">
-                  {item.value}
-                </div>
-                <div className="text-xs sm:text-sm text-white/80">
-                  {item.label}
-                </div>
-              </div>
+                {item.label}
+              </button>
             ))}
-          </div>
 
+            <Search
+              onClick={() => setSearchOpen(!searchOpen)}
+              className="cursor-pointer hover:text-yellow-400"
+              size={20}
+            />
+          </nav>
+
+          {/* Mobile Button */}
+          <button className="md:hidden text-white" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
-      </div>
 
-    </section>
+        {/* Modern Search Bar */}
+        {searchOpen && (
+          <div className="px-6 py-3 bg-black/80 backdrop-blur-xl border-t border-white/10 animate-fadeIn">
+            <div className="relative max-w-xl mx-auto">
+              <div className="flex items-center bg-white/10 border border-white/20 rounded-xl px-4 py-2 shadow-lg backdrop-blur-md">
+                <Search size={20} className="text-white/70" />
+
+                <input
+                  className="w-full bg-transparent text-white ml-3 outline-none"
+                  placeholder="Buscar servicios, flota, tecnología..."
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                />
+
+                <button
+                  onClick={handleSearch}
+                  className="px-4 py-1.5 bg-yellow-500 hover:bg-yellow-600 text-black rounded-md font-semibold transition"
+                >
+                  Buscar
+                </button>
+
+                <button
+                  onClick={() => setSearchOpen(false)}
+                  className="ml-2 text-white/60 hover:text-white"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="md:hidden bg-black/70 border-t border-white/10 px-6 py-4 flex flex-col gap-4 text-white">
+            {sections.map((item) => (
+              <button key={item.id} onClick={() => scrollTo(item.id)}>
+                {item.label}
+              </button>
+            ))}
+
+            <button className="flex gap-2 items-center" onClick={() => setSearchOpen(!searchOpen)}>
+              <Search size={20} /> Buscar
+            </button>
+          </div>
+        )}
+      </header>
+
+      {/* HERO */}
+      <section id="top" className="relative w-full h-screen overflow-hidden">
+
+        <img src="/fondo.png" alt="Transporte de carga" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
+
+        <div className="relative z-10 w-full h-full flex items-center px-6 md:px-16">
+          <div className="max-w-xl space-y-6 mt-20">
+
+            {/* Badge */}
+            <span className="text-xs font-semibold text-black bg-yellow-500 px-3 py-1 rounded shadow-md">
+              ¡MÁS QUE UN SERVICIO, UNA SOLUCIÓN!
+            </span>
+
+            {/* Title */}
+            <h1 className="text-white font-bold text-4xl md:text-5xl leading-tight drop-shadow-xl">
+              Soluciones Logísticas y Transporte de Carga
+            </h1>
+
+            {/* Subtitle */}
+            <h2 className="text-yellow-400 font-bold text-3xl md:text-4xl drop-shadow-xl">
+              Confiables para todo el Perú
+            </h2>
+
+            {/* Description */}
+            <p className="text-white/90 text-sm md:text-base leading-relaxed max-w-md">
+              Seguridad, puntualidad y tecnología al servicio de tus envíos.
+              Monitoreo GPS 24/7 y atención personalizada.
+            </p>
+
+            {/* BUTTONS */}
+            <div className="flex flex-wrap gap-4 pt-2">
+              <button onClick={() => scrollTo('services')} className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-lg shadow-md transition">
+                Cotizar Servicio
+              </button>
+
+              <button
+                onClick={() =>
+                  window.open(
+                    `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`,
+                    "_blank"
+                  )
+                }
+                className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-medium rounded-lg flex items-center gap-2 shadow-md transition"
+              >
+                <MessageCircle size={16} /> Atención por WhatsApp
+              </button>
+            </div>
+
+            {/* INFO BOXES BELOW */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6">
+              <div className="bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white text-center backdrop-blur-md">
+                <p className="font-semibold text-md">Seguimiento</p>
+                <p className="text-white/70 text-sm">GPS 24/7</p>
+              </div>
+
+              <div className="bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white text-center backdrop-blur-md">
+                <p className="font-semibold text-md">12 millones de dólares</p>
+                <p className="text-white/70 text-sm">Seguro</p>
+              </div>
+
+              <div className="bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white text-center backdrop-blur-md">
+                <p className="font-semibold text-md">Nacional</p>
+                <p className="text-white/70 text-sm">Cobertura</p>
+              </div>
+
+              <div className="bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white text-center backdrop-blur-md">
+                <p className="font-semibold text-md">Confiable</p>
+                <p className="text-white/70 text-sm">Experiencia</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

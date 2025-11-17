@@ -12,16 +12,53 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 const Index = () => {
   return (
     <main className="min-h-screen">
-      <Hero />
-      <About />
-      <Services />
-      <Fleet />
-      <Technology />
-      <Insurance />
-      <WhatsAppSection />
-      <Contact />
+
+      {/* HERO */}
+      <section id="top">
+        <Hero />
+      </section>
+
+      {/* NOSOTROS */}
+      <section id="about">
+        <About />
+      </section>
+
+      {/* SERVICIOS */}
+      <section id="services">
+        <Services />
+      </section>
+
+      {/* FLOTA */}
+      <section id="fleet">
+        <Fleet />
+      </section>
+
+      {/* TECNOLOGÍA */}
+      <section id="technology">
+        <Technology />
+      </section>
+
+      {/* SEGURO */}
+      <section id="insurance">
+        <Insurance />
+      </section>
+
+      {/* WHATSAPP INFO */}
+      <section id="whatsapp-info">
+        <WhatsAppSection />
+      </section>
+
+      {/* CONTACTO */}
+      <section id="contact">
+        <Contact />
+      </section>
+
+      {/* FOOTER */}
       <Footer />
+
+      {/* BOTÓN FLOTANTE */}
       <WhatsAppFloat />
+
     </main>
   );
 };
