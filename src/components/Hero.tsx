@@ -1,69 +1,97 @@
 import { MessageCircle, ArrowRight } from "lucide-react";
+// SI LA IMAGEN ESTÁ EN SRC/ASSETS, ACTIVA ESTO:
+// import fondo from "../assets/fondo.png";
 
 export default function Hero() {
   const whatsappNumber = "51923987360";
-  const whatsappMessage = encodeURIComponent("Hola, me gustaría solicitar información sobre sus servicios de transporte y logística.");
-  
+  const whatsappMessage = encodeURIComponent(
+    "Hola, me gustaría solicitar información sobre sus servicios de transporte y logística."
+  );
+
   return (
     <section className="relative w-full h-screen overflow-hidden">
+
       {/* Full Background Image */}
-        <img 
-        src="/fondo.png"  alt="Transporte de carga profesional" />
-        /{">"}
-        
-        {/* Overlay - Light */}
+      <img
+        // Usa ESTA línea si la imagen está en /public
+        src="/fondo.png"
+
+        // Usa ESTA si está en src/assets/
+        // src={fondo}
+
+        alt="Transporte de carga profesional"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+
+      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
-      
+
       {/* Hero Content */}
       <div className="relative z-10 w-full h-full flex items-center justify-start px-6 sm:px-8 md:px-12 lg:px-16">
         <div className="w-full max-w-sm sm:max-w-md md:max-w-lg space-y-6">
-          
+
           {/* Tagline */}
           <div className="inline-block">
             <span className="text-yellow-400 font-bold text-xs uppercase tracking-wider px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full">
               ¡Más que un servicio, una solución!
             </span>
           </div>
-          
+
           {/* Title */}
-          <div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg">
-              Soluciones Logísticas y Transporte de Carga
-              <span className="block text-yellow-400 mt-1">Confiables para todo el Perú</span>
-            </h1>
-          </div>
-          
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg">
+            Soluciones Logísticas y Transporte de Carga
+            <span className="block text-yellow-400 mt-1">
+              Confiables para todo el Perú
+            </span>
+          </h1>
+
           {/* Description */}
           <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed drop-shadow-md">
             Seguridad, puntualidad y tecnología al servicio de tus envíos.
             Monitoreo GPS 24/7 y atención personalizada.
           </p>
-          
+
           {/* Buttons */}
           <div className="flex flex-col gap-3 pt-2">
             <button
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() =>
+                document.getElementById("contact")?.scrollIntoView({
+                  behavior: "smooth",
+                })
+              }
               className="px-6 py-3 sm:py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg flex items-center justify-center gap-2 transition-all text-sm sm:text-base group shadow-lg"
             >
               Cotizar Servicio
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight
+                size={18}
+                className="group-hover:translate-x-1 transition-transform"
+              />
             </button>
+
             <button
-              onClick={() => window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, "_blank")}
+              onClick={() =>
+                window.open(
+                  `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`,
+                  "_blank"
+                )
+              }
               className="px-6 py-3 sm:py-3.5 bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg flex items-center justify-center gap-2 transition-all text-sm sm:text-base group shadow-lg"
             >
-              <MessageCircle size={18} className="group-hover:scale-110 transition-transform" />
+              <MessageCircle
+                size={18}
+                className="group-hover:scale-110 transition-transform"
+              />
               Atención por WhatsApp 24/7
             </button>
           </div>
-          
+
           {/* Trust Indicators */}
           <div className="grid grid-cols-2 gap-3 pt-4">
             {[
               { label: "GPS 24/7", value: "Tracking" },
               { label: "Seguro", value: "$12M" },
               { label: "Cobertura", value: "Nacional" },
-              { label: "Experiencia", value: "Confiable" }
+              { label: "Experiencia", value: "Confiable" },
             ].map((item, index) => (
               <div
                 key={index}
@@ -72,12 +100,16 @@ export default function Hero() {
                 <div className="text-lg sm:text-xl md:text-2xl font-bold text-yellow-400 mb-0.5">
                   {item.value}
                 </div>
-                <div className="text-xs sm:text-sm text-white/80">{item.label}</div>
+                <div className="text-xs sm:text-sm text-white/80">
+                  {item.label}
+                </div>
               </div>
             ))}
           </div>
+
         </div>
       </div>
+
     </section>
   );
 }
