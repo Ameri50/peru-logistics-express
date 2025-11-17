@@ -8,7 +8,7 @@ export default function Hero() {
     <section className="relative w-full h-screen overflow-hidden">
       {/* Full Background Image */}
         <img 
-          src="src/assets/fondo.png" 
+          src="/public/fondo.png" 
           alt="Transporte de carga profesional" 
           className="absolute inset-0 w-full h-full object-cover"
         />
