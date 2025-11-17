@@ -8,10 +8,8 @@ export default function Hero() {
     <section className="relative w-full h-screen overflow-hidden">
       {/* Full Background Image */}
         <img 
-          src="/public/fondo.png" 
-          alt="Transporte de carga profesional" 
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        src="/fondo.png"  alt="Transporte de carga profesional" />
+        /{">"}
         
         {/* Overlay - Light */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
