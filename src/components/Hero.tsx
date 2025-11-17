@@ -55,7 +55,7 @@ export default function Hero() {
               className="px-6 py-3 sm:py-3.5 bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg flex items-center justify-center gap-2 transition-all text-sm sm:text-base group shadow-lg"
             >
               <MessageCircle size={18} className="group-hover:scale-110 transition-transform" />
-              Atención por WhatsApp
+              Atención por WhatsApp 24/7
             </button>
           </div>
           
