@@ -16,7 +16,7 @@ export default function Footer() {
             <div className="mb-12 flex items-center gap-6">
               <img src={logo} alt="HURIANKA Logo" className="h-20 md:h-32 object-contain" />
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white">HURIANKA</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-white">HURIANKA S.A.C.</h2>
                 <p className="text-yellow-400 text-sm md:text-base">Soluciones Logísticas</p>
               </div>
             </div>

@@ -14,12 +14,36 @@ export default function Hero() {
   );
 
   const sections = [
-    { label: "Servicios", id: "services" },
-    { label: "Nosotros", id: "about" },
-    { label: "Flota", id: "fleet" },
-    { label: "Tecnología", id: "technology" },
-    { label: "Seguro", id: "insurance" },
-    { label: "Contacto", id: "contact" },
+    { 
+      label: "Servicios", 
+      id: "services",
+      keywords: ["servicio", "cotizar", "cotizacion", "transporte", "envios", "carga"]
+    },
+    { 
+      label: "Nosotros", 
+      id: "about",
+      keywords: ["nosotros", "sobre", "quienes somos", "empresa", "acerca"]
+    },
+    { 
+      label: "Flota", 
+      id: "fleet",
+      keywords: ["flota", "vehiculos", "camiones", "transporte", "vehículos"]
+    },
+    { 
+      label: "Tecnología", 
+      id: "technology",
+      keywords: ["tecnologia", "gps", "monitoreo", "tracking", "sistema", "plataforma"]
+    },
+    { 
+      label: "Seguro", 
+      id: "insurance",
+      keywords: ["seguro", "cobertura", "proteccion", "aseguranza", "12 millones"]
+    },
+    { 
+      label: "Contacto", 
+      id: "contact",
+      keywords: ["contacto", "llamar", "comunicarse", "whatsapp", "telefono", "soporte"]
+    },
   ];
 
   const scrollTo = (id: string) => {
@@ -30,16 +54,28 @@ export default function Hero() {
   };
 
   const handleSearch = () => {
-    const match = sections.find((s) =>
-      s.label.toLowerCase().includes(query.toLowerCase())
-    );
+    const queryLower = query.toLowerCase().trim();
+    
+    if (!queryLower) {
+      alert("Por favor ingresa una búsqueda");
+      return;
+    }
+
+    // Búsqueda flexible: verifica label exacto o keywords
+    const match = sections.find((s) => {
+      const labelMatch = s.label.toLowerCase().includes(queryLower);
+      const keywordMatch = s.keywords.some(keyword => 
+        keyword.includes(queryLower) || queryLower.includes(keyword)
+      );
+      return labelMatch || keywordMatch;
+    });
 
     if (match) {
       scrollTo(match.id);
       setSearchOpen(false);
       setQuery("");
     } else {
-      alert("No se encontró: " + query);
+      alert(`No encontramos "${query}". Intenta con: ${sections.map(s => s.label).join(", ")}`);
     }
   };
 
@@ -60,7 +96,6 @@ export default function Hero() {
               onClick={() => scrollTo("top")}
               className="text-white font-bold text-lg sm:text-xl tracking-wide cursor-pointer hover:text-yellow-400 transition"
             >
-            
             </h1>
 
             {/* Desktop Menu */}
@@ -97,22 +132,25 @@ export default function Hero() {
           {/* Search Bar */}
           {searchOpen && (
             <div className="mt-3 pb-3 animate-fadeIn">
-              <div className="flex items-center bg-white/10 border border-white/20 rounded-lg px-3 py-2 gap-2">
-                <Search size={18} className="text-white/70 flex-shrink-0" />
-                <input
-                  className="w-full bg-transparent text-white text-sm outline-none placeholder-white/50"
-                  placeholder="Buscar..."
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  autoFocus
-                />
-                <button
-                  onClick={handleSearch}
-                  className="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-black rounded text-sm font-semibold transition flex-shrink-0"
-                >
-                  OK
-                </button>
+              <div className="space-y-2">
+                <div className="flex items-center bg-white/10 border border-white/20 rounded-lg px-3 py-2 gap-2">
+                  <Search size={18} className="text-white/70 flex-shrink-0" />
+                  <input
+                    className="w-full bg-transparent text-white text-sm outline-none placeholder-white/50"
+                    placeholder="Busca: servicios, gps, transporte, contacto..."
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    autoFocus
+                  />
+                  <button
+                    onClick={handleSearch}
+                    className="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-black rounded text-sm font-semibold transition flex-shrink-0"
+                  >
+                    OK
+                  </button>
+                </div>
+                <p className="text-white/50 text-xs px-1">Prueba: "gps", "cotizar", "contacto", "cobertura"...</p>
               </div>
             </div>
           )}
@@ -196,28 +234,7 @@ export default function Hero() {
               </button>
             </div>
 
-            {/* Info Boxes */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 pt-6 md:pt-8">
-              <div className="bg-black/40 border border-white/10 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-white text-center backdrop-blur-md hover:bg-black/50 transition">
-                <p className="font-semibold text-xs sm:text-sm md:text-base">Seguimiento</p>
-                <p className="text-white/70 text-xs sm:text-sm">GPS 24/7</p>
-              </div>
 
-              <div className="bg-black/40 border border-white/10 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-white text-center backdrop-blur-md hover:bg-black/50 transition">
-                <p className="font-semibold text-xs sm:text-sm md:text-base">$12M USD</p>
-                <p className="text-white/70 text-xs sm:text-sm">Seguro</p>
-              </div>
-
-              <div className="bg-black/40 border border-white/10 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-white text-center backdrop-blur-md hover:bg-black/50 transition">
-                <p className="font-semibold text-xs sm:text-sm md:text-base">Nacional</p>
-                <p className="text-white/70 text-xs sm:text-sm">Cobertura</p>
-              </div>
-
-              <div className="bg-black/40 border border-white/10 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-white text-center backdrop-blur-md hover:bg-black/50 transition">
-                <p className="font-semibold text-xs sm:text-sm md:text-base">Confiable</p>
-                <p className="text-white/70 text-xs sm:text-sm">Experiencia</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
