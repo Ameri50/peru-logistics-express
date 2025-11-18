@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MessageCircle, ArrowRight, Menu, X, Search } from "lucide-react";
+import { MessageCircle, Menu, X, Search } from "lucide-react";
 
 export default function Hero() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,7 +13,6 @@ export default function Hero() {
     "Hola, me gustaría solicitar información sobre sus servicios de transporte y logística."
   );
 
-  // Secciones disponibles
   const sections = [
     { label: "Servicios", id: "services" },
     { label: "Nosotros", id: "about" },
@@ -23,14 +22,13 @@ export default function Hero() {
     { label: "Contacto", id: "contact" },
   ];
 
-  // Función scroll suave
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
     el.scrollIntoView({ behavior: "smooth" });
+    setMenuOpen(false);
   };
 
-  // Lógica de búsqueda
   const handleSearch = () => {
     const match = sections.find((s) =>
       s.label.toLowerCase().includes(query.toLowerCase())
@@ -45,126 +43,143 @@ export default function Hero() {
     }
   };
 
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <>
       {/* NAVBAR */}
       <header className="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-md border-b border-white/10">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+        <div className="w-full px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <h1
+              onClick={() => scrollTo("top")}
+              className="text-white font-bold text-lg sm:text-xl tracking-wide cursor-pointer hover:text-yellow-400 transition"
+            >
+              LOGÍSTICA
+            </h1>
 
-          {/* Logo */}
-          <h1
-            onClick={() => scrollTo("top")}
-            className="text-white font-bold text-xl tracking-wide cursor-pointer"
-          >
-            
-          </h1>
+            {/* Desktop Menu */}
+            <nav className="hidden md:flex items-center gap-2 lg:gap-6 text-white text-sm lg:text-base">
+              {sections.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollTo(item.id)}
+                  className="px-2 lg:px-3 py-1 hover:text-yellow-400 transition whitespace-nowrap"
+                >
+                  {item.label}
+                </button>
+              ))}
 
-          {/* Desktop Menu */}
-          <nav className="hidden md:flex items-center gap-6 text-white">
+              <button
+                onClick={() => setSearchOpen(!searchOpen)}
+                className="ml-4 p-2 hover:text-yellow-400 transition"
+                title="Buscar"
+              >
+                <Search size={18} />
+              </button>
+            </nav>
+
+            {/* Mobile Button */}
+            <button
+              className="md:hidden text-white p-2"
+              onClick={() => setMenuOpen(!menuOpen)}
+              title="Menú"
+            >
+              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+
+          {/* Search Bar */}
+          {searchOpen && (
+            <div className="mt-3 pb-3 animate-fadeIn">
+              <div className="flex items-center bg-white/10 border border-white/20 rounded-lg px-3 py-2 gap-2">
+                <Search size={18} className="text-white/70 flex-shrink-0" />
+                <input
+                  className="w-full bg-transparent text-white text-sm outline-none placeholder-white/50"
+                  placeholder="Buscar..."
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                  autoFocus
+                />
+                <button
+                  onClick={handleSearch}
+                  className="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-black rounded text-sm font-semibold transition flex-shrink-0"
+                >
+                  OK
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="md:hidden bg-black/70 border-t border-white/10 px-4 sm:px-6 py-4 flex flex-col gap-3 text-white text-sm">
             {sections.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className="hover:text-yellow-400"
+                className="text-left py-2 hover:text-yellow-400 transition"
               >
                 {item.label}
               </button>
             ))}
-
-            <Search
+            <button
+              className="flex gap-2 items-center py-2 hover:text-yellow-400 transition"
               onClick={() => setSearchOpen(!searchOpen)}
-              className="cursor-pointer hover:text-yellow-400"
-              size={20}
-            />
-          </nav>
-
-          {/* Mobile Button */}
-          <button className="md:hidden text-white" onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
-
-        {/* Modern Search Bar */}
-        {searchOpen && (
-          <div className="px-6 py-3 bg-black/80 backdrop-blur-xl border-t border-white/10 animate-fadeIn">
-            <div className="relative max-w-xl mx-auto">
-              <div className="flex items-center bg-white/10 border border-white/20 rounded-xl px-4 py-2 shadow-lg backdrop-blur-md">
-                <Search size={20} className="text-white/70" />
-
-                <input
-                  className="w-full bg-transparent text-white ml-3 outline-none"
-                  placeholder="Buscar servicios, flota, tecnología..."
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                />
-
-                <button
-                  onClick={handleSearch}
-                  className="px-4 py-1.5 bg-yellow-500 hover:bg-yellow-600 text-black rounded-md font-semibold transition"
-                >
-                  Buscar
-                </button>
-
-                <button
-                  onClick={() => setSearchOpen(false)}
-                  className="ml-2 text-white/60 hover:text-white"
-                >
-                  <X size={20} />
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Mobile Menu */}
-        {menuOpen && (
-          <div className="md:hidden bg-black/70 border-t border-white/10 px-6 py-4 flex flex-col gap-4 text-white">
-            {sections.map((item) => (
-              <button key={item.id} onClick={() => scrollTo(item.id)}>
-                {item.label}
-              </button>
-            ))}
-
-            <button className="flex gap-2 items-center" onClick={() => setSearchOpen(!searchOpen)}>
-              <Search size={20} /> Buscar
+            >
+              <Search size={18} /> Buscar
             </button>
           </div>
         )}
       </header>
 
       {/* HERO */}
-      <section id="top" className="relative w-full h-screen overflow-hidden">
+      <section id="top" className="relative w-full min-h-screen pt-20 sm:pt-24 md:pt-0 md:h-screen overflow-hidden">
+        {/* Background */}
+        <img
+          src="/fondo.png"
+          alt="Transporte de carga"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/60 to-transparent md:from-black/70" />
 
-        <img src="/fondo.png" alt="Transporte de carga" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
-
-        <div className="relative z-10 w-full h-full flex items-center px-6 md:px-16">
-          <div className="max-w-xl space-y-6 mt-20">
-
+        {/* Content */}
+        <div className="relative z-10 w-full h-full flex items-center justify-center md:justify-start px-4 sm:px-6 lg:px-16 py-12 sm:py-16 md:py-0">
+          <div className="w-full max-w-2xl space-y-4 sm:space-y-5 md:space-y-6">
             {/* Badge */}
-            <span className="text-xs font-semibold text-black bg-yellow-500 px-3 py-1 rounded shadow-md">
+            <span className="inline-block text-xs sm:text-sm font-semibold text-black bg-yellow-500 px-3 sm:px-4 py-1.5 rounded shadow-md">
               ¡MÁS QUE UN SERVICIO, UNA SOLUCIÓN!
             </span>
 
             {/* Title */}
-            <h1 className="text-white font-bold text-4xl md:text-5xl leading-tight drop-shadow-xl">
+            <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight drop-shadow-xl">
               Soluciones Logísticas y Transporte de Carga
             </h1>
 
             {/* Subtitle */}
-            <h2 className="text-yellow-400 font-bold text-3xl md:text-4xl drop-shadow-xl">
+            <h2 className="text-yellow-400 font-bold text-2xl sm:text-3xl md:text-4xl drop-shadow-xl">
               Confiables para todo el Perú
             </h2>
 
             {/* Description */}
-            <p className="text-white/90 text-sm md:text-base leading-relaxed max-w-md">
+            <p className="text-white/90 text-sm sm:text-base leading-relaxed">
               Seguridad, puntualidad y tecnología al servicio de tus envíos.
               Monitoreo GPS 24/7 y atención personalizada.
             </p>
 
-            {/* BUTTONS */}
-            <div className="flex flex-wrap gap-4 pt-2">
-              <button onClick={() => scrollTo('services')} className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-lg shadow-md transition">
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 md:pt-4">
+              <button
+                onClick={() => scrollTo("services")}
+                className="w-full sm:w-auto px-6 py-2.5 sm:py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-lg shadow-md transition text-sm sm:text-base"
+              >
                 Cotizar Servicio
               </button>
 
@@ -175,35 +190,34 @@ export default function Hero() {
                     "_blank"
                   )
                 }
-                className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-medium rounded-lg flex items-center gap-2 shadow-md transition"
+                className="w-full sm:w-auto px-6 py-2.5 sm:py-3 bg-green-500 hover:bg-green-600 text-white font-medium rounded-lg flex items-center justify-center gap-2 shadow-md transition text-sm sm:text-base"
               >
-                <MessageCircle size={16} /> Atención por WhatsApp
+                <MessageCircle size={18} /> WhatsApp
               </button>
             </div>
 
-            {/* INFO BOXES BELOW */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6">
-              <div className="bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white text-center backdrop-blur-md">
-                <p className="font-semibold text-md">Seguimiento</p>
-                <p className="text-white/70 text-sm">GPS 24/7</p>
+            {/* Info Boxes */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 pt-6 md:pt-8">
+              <div className="bg-black/40 border border-white/10 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-white text-center backdrop-blur-md hover:bg-black/50 transition">
+                <p className="font-semibold text-xs sm:text-sm md:text-base">Seguimiento</p>
+                <p className="text-white/70 text-xs sm:text-sm">GPS 24/7</p>
               </div>
 
-              <div className="bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white text-center backdrop-blur-md">
-                <p className="font-semibold text-md">12 millones de dólares</p>
-                <p className="text-white/70 text-sm">Seguro</p>
+              <div className="bg-black/40 border border-white/10 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-white text-center backdrop-blur-md hover:bg-black/50 transition">
+                <p className="font-semibold text-xs sm:text-sm md:text-base">$12M USD</p>
+                <p className="text-white/70 text-xs sm:text-sm">Seguro</p>
               </div>
 
-              <div className="bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white text-center backdrop-blur-md">
-                <p className="font-semibold text-md">Nacional</p>
-                <p className="text-white/70 text-sm">Cobertura</p>
+              <div className="bg-black/40 border border-white/10 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-white text-center backdrop-blur-md hover:bg-black/50 transition">
+                <p className="font-semibold text-xs sm:text-sm md:text-base">Nacional</p>
+                <p className="text-white/70 text-xs sm:text-sm">Cobertura</p>
               </div>
 
-              <div className="bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white text-center backdrop-blur-md">
-                <p className="font-semibold text-md">Confiable</p>
-                <p className="text-white/70 text-sm">Experiencia</p>
+              <div className="bg-black/40 border border-white/10 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-white text-center backdrop-blur-md hover:bg-black/50 transition">
+                <p className="font-semibold text-xs sm:text-sm md:text-base">Confiable</p>
+                <p className="text-white/70 text-xs sm:text-sm">Experiencia</p>
               </div>
             </div>
-
           </div>
         </div>
       </section>
