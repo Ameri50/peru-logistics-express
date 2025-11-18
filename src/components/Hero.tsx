@@ -60,7 +60,7 @@ export default function Hero() {
               onClick={() => scrollTo("top")}
               className="text-white font-bold text-lg sm:text-xl tracking-wide cursor-pointer hover:text-yellow-400 transition"
             >
-              LOGÍSTICA
+            
             </h1>
 
             {/* Desktop Menu */}
