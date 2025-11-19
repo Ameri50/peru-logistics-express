@@ -1,7 +1,10 @@
 import Navbar from './Navbar';
-import { Truck, Package, Warehouse, MapPin, Shield, Clock, ArrowRight, CheckCircle } from "lucide-react";
+import { Truck, Package, Warehouse, MapPin, Shield, Clock, ArrowRight, CheckCircle, X } from "lucide-react";
+import { useState } from "react";
 
 export default function Services() {
+  const [selectedService, setSelectedService] = useState(null);
+
   const services = [
     {
       icon: Truck,
@@ -9,7 +12,16 @@ export default function Services() {
       description: "Soluciones especializadas para cargas pesadas y sobredimensionadas con equipos de última generación.",
       color: "from-red-600 to-red-700",
       bgColor: "from-red-50 to-red-100",
-      features: ["Equipos modernos", "Profesionales especializados"]
+      features: ["Equipos modernos", "Profesionales especializados"],
+      fullDescription: "Nuestro servicio de transporte de carga pesada está diseñado para manejar cargas excepcionales y sobredimensionadas. Contamos con equipos especializados, conductores certificados y seguros completos para garantizar que tu carga llegue de forma segura.",
+      details: [
+        "Cargas hasta 30 toneladas",
+        "Equipos con sistemas de amortiguación avanzados",
+        "Conductores especializados en carga pesada",
+        "Rutas optimizadas según peso y dimensiones",
+        "Permisos especiales incluidos",
+        "Seguro de carga completo"
+      ]
     },
     {
       icon: Package,
@@ -17,7 +29,16 @@ export default function Services() {
       description: "Servicios de transporte desde Lima hacia diversos lugares del país con máxima seguridad.",
       color: "from-blue-600 to-blue-700",
       bgColor: "from-blue-50 to-blue-100",
-      features: ["Cobertura nacional", "Seguridad garantizada"]
+      features: ["Cobertura nacional", "Seguridad garantizada"],
+      fullDescription: "Transporte inicial de mercancías desde Lima a nivel nacional. Incluye recolección, carga y traslado con monitoreo GPS continuo y seguros que cubren toda la operación.",
+      details: [
+        "Cobertura en todo el Perú",
+        "Recolección desde tu almacén",
+        "Rutas consolidadas eficientes",
+        "Monitoreo GPS en tiempo real",
+        "Seguimiento de documentación",
+        "Atención personalizada"
+      ]
     },
     {
       icon: MapPin,
@@ -25,7 +46,16 @@ export default function Services() {
       description: "Distribución final de mercancías a diferentes zonas del país con entrega puntual garantizada.",
       color: "from-green-600 to-green-700",
       bgColor: "from-green-50 to-green-100",
-      features: ["Entrega puntual", "Cobertura completa"]
+      features: ["Entrega puntual", "Cobertura completa"],
+      fullDescription: "Servicio de distribución de última milla con entregas puerta a puerta. Optimizamos tiempos y costos para garantizar que tu carga llegue a destino en el tiempo acordado.",
+      details: [
+        "Entregas puerta a puerta",
+        "Confirmación fotográfica",
+        "Distribuimos en zonas difíciles",
+        "Horarios flexibles",
+        "Manejo cuidadoso de mercancías",
+        "Reportes detallados de entregas"
+      ]
     },
     {
       icon: Warehouse,
@@ -33,7 +63,16 @@ export default function Services() {
       description: "Espacios seguros para almacenamiento temporal de tu carga con control de inventario.",
       color: "from-yellow-600 to-yellow-700",
       bgColor: "from-yellow-50 to-yellow-100",
-      features: ["Espacios seguros", "Control de inventario"]
+      features: ["Espacios seguros", "Control de inventario"],
+      fullDescription: "Contamos con almacenes estratégicamente ubicados para resguardo temporal de mercancías. Incluye vigilancia 24/7, control de inventario y gestión documental.",
+      details: [
+        "Almacenes climatizados disponibles",
+        "Vigilancia con CCTV 24/7",
+        "Sistema de control de inventario",
+        "Gestión de documentación",
+        "Seguro incluido",
+        "Acceso flexible según necesidad"
+      ]
     },
     {
       icon: Package,
@@ -41,7 +80,16 @@ export default function Services() {
       description: "Servicio de transferencia rápida de mercancías entre unidades de transporte.",
       color: "from-purple-600 to-purple-700",
       bgColor: "from-purple-50 to-purple-100",
-      features: ["Transferencia rápida", "Eficiencia operativa"]
+      features: ["Transferencia rápida", "Eficiencia operativa"],
+      fullDescription: "Optimiza tu logística con nuestro servicio de Cross Docking. Transferencia inmediata de carga entre unidades sin almacenamiento prolongado, reduciendo costos y tiempos.",
+      details: [
+        "Transferencia en menos de 4 horas",
+        "Sin manipulación excesiva",
+        "Reducción de costos operativos",
+        "Disponible 24/7",
+        "Coordinación con múltiples transportistas",
+        "Rastreo en cada etapa"
+      ]
     },
     {
       icon: Clock,
@@ -49,7 +97,16 @@ export default function Services() {
       description: "Tracking GPS en tiempo real de tus envíos con atención personalizada las 24 horas.",
       color: "from-cyan-600 to-cyan-700",
       bgColor: "from-cyan-50 to-cyan-100",
-      features: ["Monitoreo en vivo", "Atención 24/7"]
+      features: ["Monitoreo en vivo", "Atención 24/7"],
+      fullDescription: "Mantén control total de tus envíos con nuestro sistema de seguimiento avanzado. Acceso web en tiempo real y alertas automáticas para cada etapa del transporte.",
+      details: [
+        "GPS en tiempo real 24/7",
+        "Acceso web desde cualquier dispositivo",
+        "Alertas automáticas de eventos",
+        "Historial completo de rutas",
+        "Estimación de llegada precisa",
+        "Soporte técnico permanente"
+      ]
     }
   ];
 
@@ -113,10 +170,13 @@ export default function Services() {
                       </div>
 
                       {/* Arrow Button */}
-                      <div className="flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all">
+                      <button
+                        onClick={() => setSelectedService(idx)}
+                        className="flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all hover:text-blue-700"
+                      >
                         <span className="text-sm">Más información</span>
                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                      </div>
+                      </button>
                     </div>
                   </div>
                 );
@@ -180,6 +240,81 @@ export default function Services() {
           </div>
         </section>
       </div>
+
+      {/* Modal de Detalles del Servicio */}
+      {selectedService !== null && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 pt-20 md:pt-0">
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+            {/* Header del Modal */}
+            <div className={`bg-gradient-to-r ${services[selectedService].color} p-8 text-white sticky top-0`}>
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex items-start gap-4">
+                  {(() => {
+                    const Icon = services[selectedService].icon;
+                    return (
+                      <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center">
+                        <Icon size={32} />
+                      </div>
+                    );
+                  })()}
+                  <div>
+                    <h2 className="text-3xl font-bold mb-2">{services[selectedService].title}</h2>
+                    <p className="text-white/90">{services[selectedService].description}</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setSelectedService(null)}
+                  className="p-2 hover:bg-white/20 rounded-lg transition-all flex-shrink-0"
+                >
+                  <X size={28} />
+                </button>
+              </div>
+            </div>
+
+            {/* Contenido del Modal */}
+            <div className="p-8">
+              {/* Descripción Completa */}
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Descripción</h3>
+                <p className="text-gray-600 leading-relaxed text-lg">
+                  {services[selectedService].fullDescription}
+                </p>
+              </div>
+
+              {/* Detalles */}
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Lo que incluye</h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {services[selectedService].details.map((detail, idx) => (
+                    <div key={idx} className="flex gap-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all">
+                      <CheckCircle size={24} className={`text-${services[selectedService].color.split('-')[1]}-600 flex-shrink-0 mt-0.5`} />
+                      <span className="text-gray-700 font-medium">{detail}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA en Modal */}
+              <div className="grid md:grid-cols-2 gap-4 pt-4 border-t border-gray-200">
+                <a
+                  href="/contact"
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all transform hover:scale-105 text-center"
+                >
+                  Solicitar Cotización
+                </a>
+                <a
+                  href={`https://wa.me/51923987360?text=${encodeURIComponent(`Hola, me gustaría más información sobre: ${services[selectedService].title}`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg transition-all transform hover:scale-105 text-center"
+                >
+                  Consultar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
