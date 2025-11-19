@@ -1,137 +1,207 @@
-import { Heart, Target, Zap, Users, Globe, Shield } from "lucide-react";
+import Navbar from './Navbar';
+import { Heart, Target, Zap, Users, Globe, Shield, CheckCircle } from "lucide-react";
 
 export default function About() {
   return (
-    <section className="bg-gray-900 text-white py-20 px-6">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Quiénes Somos
-          </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Hurianka S.A.C. - Soluciones logísticas y transporte de carga confiables para todo el Perú
-          </p>
-        </div>
+    <>
+      <Navbar />
+      <div className="pt-32">
+        {/* Header Section */}
+        <section className="bg-gradient-to-b from-blue-50 to-white py-16 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Quiénes Somos
+              </h2>
+              <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+                Hurianka S.A.C. es una empresa dedicada a brindar soluciones logísticas y transporte de carga por carretera, comprometida con la eficiencia, seguridad y sostenibilidad en cada uno de nuestros servicios.
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* Mission & Vision */}
-        <div className="grid md:grid-cols-2 gap-12 mb-20">
-          {/* Mission */}
-          <div className="bg-gradient-to-br from-blue-800 to-blue-900 rounded-lg p-8 hover:shadow-2xl transition-all">
-            <div className="flex items-center gap-3 mb-4">
-              <Target size={32} className="text-yellow-400" />
-              <h3 className="text-2xl font-bold">Misión</h3>
+        <section className="bg-gray-900 py-20 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 mb-20">
+              <div className="bg-gradient-to-br from-blue-800 to-blue-900 rounded-xl p-8 hover:shadow-2xl transition-all transform hover:-translate-y-1">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 bg-yellow-400 rounded-lg flex items-center justify-center">
+                    <Target size={28} className="text-blue-900" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Misión</h3>
+                </div>
+                <p className="text-gray-100 leading-relaxed">
+                  Ofrecer servicios logísticos especializados en el transporte y distribución de carga a nivel nacional, garantizando la calidad y seguridad de las mercancías mediante un equipo de profesionales capacitados y comprometidos con la satisfacción del cliente.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-yellow-600 to-yellow-700 rounded-xl p-8 hover:shadow-2xl transition-all transform hover:-translate-y-1">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+                    <Zap size={28} className="text-yellow-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Visión 2030</h3>
+                </div>
+                <p className="text-gray-100 leading-relaxed">
+                  Ser una organización sólida capaz de brindar soluciones operativas a una amplia variedad de clientes. Expandir nuestra flota a 50 unidades equipadas y contar con un almacén especializado, adaptado a las necesidades de nuestros clientes.
+                </p>
+              </div>
             </div>
-            <p className="text-gray-100 leading-relaxed">
-              Ofrecer servicios logísticos especializados en el transporte y distribución de carga a nivel nacional, 
-              garantizando la calidad y seguridad de las mercancías mediante un equipo de profesionales capacitados 
-              y comprometidos con la satisfacción del cliente.
+          </div>
+        </section>
+
+        {/* Principles Section */}
+        <section className="bg-white py-20 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="bg-yellow-50 border-l-4 border-yellow-400 rounded-lg p-8 mb-16">
+              <p className="text-gray-800 text-lg leading-relaxed">
+                <span className="font-bold text-gray-900">En Hurianka, nos regimos por los siguientes principios:</span>
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-16">
+              {[
+                {
+                  title: 'Satisfacción del cliente',
+                  description: 'Trabajamos para superar las expectativas de nuestros clientes, garantizando calidad, puntualidad y confianza en cada operación.'
+                },
+                {
+                  title: 'Compromiso con nuestro equipo humano',
+                  description: 'Valoramos a nuestros colaboradores y fomentamos un ambiente de trabajo seguro, con una cultura organizacional basada en la seguridad y salud en el trabajo.'
+                },
+                {
+                  title: 'Responsabilidad ambiental',
+                  description: 'Implementamos prácticas sostenibles para minimizar nuestro impacto ambiental, apostando por el uso eficiente de los recursos y tecnologías más limpias.'
+                },
+                {
+                  title: 'Desarrollo y responsabilidad social',
+                  description: 'Contribuimos al crecimiento del país mediante la generación de empleo formal y el apoyo a las comunidades en las que operamos.'
+                }
+              ].map((principle, idx) => (
+                <div key={idx} className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-all">
+                  <div className="flex gap-4">
+                    <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                    <div>
+                      <h4 className="text-lg font-bold text-gray-900 mb-2">{principle.title}</h4>
+                      <p className="text-gray-600 text-sm leading-relaxed">{principle.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-gradient-to-r from-blue-900 to-blue-950 rounded-xl p-8 text-center">
+              <p className="text-white text-lg leading-relaxed">
+                <span className="font-bold">En Hurianka S.A.C., nos esforzamos por ofrecer soluciones innovadoras y eficientes, garantizando un servicio de alta calidad que respalde la confianza de nuestros clientes y socios estratégicos.</span>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Values Section */}
+        <section className="bg-gray-900 py-20 px-6">
+          <div className="max-w-7xl mx-auto">
+            <h3 className="text-3xl font-bold text-center text-white mb-16">Nuestros Valores</h3>
+            <div className="grid md:grid-cols-3 gap-8 mb-20">
+              <div className="bg-gradient-to-br from-blue-800 to-blue-700 rounded-xl p-8 text-center hover:shadow-2xl transition-all">
+                <div className="w-16 h-16 bg-red-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Heart size={32} className="text-white" />
+                </div>
+                <h4 className="text-xl font-bold text-white mb-3">Integridad</h4>
+                <p className="text-gray-100 text-sm leading-relaxed">
+                  Cumplimos con lo que prometemos, defendiendo la propiedad de nuestros clientes con ética y lealtad.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-green-800 to-green-700 rounded-xl p-8 text-center hover:shadow-2xl transition-all">
+                <div className="w-16 h-16 bg-green-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users size={32} className="text-white" />
+                </div>
+                <h4 className="text-xl font-bold text-white mb-3">Respeto Mutuo</h4>
+                <p className="text-gray-100 text-sm leading-relaxed">
+                  Tratamos a nuestros colaboradores y clientes con dignidad y consideración en todo momento.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-yellow-700 to-yellow-600 rounded-xl p-8 text-center hover:shadow-2xl transition-all">
+                <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Shield size={32} className="text-white" />
+                </div>
+                <h4 className="text-xl font-bold text-white mb-3">Compromiso</h4>
+                <p className="text-gray-100 text-sm leading-relaxed">
+                  Asumimos la responsabilidad de nuestras acciones, tomando decisiones con cuidado y atención.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Social Responsibility */}
+        <section className="bg-white py-20 px-6">
+          <div className="max-w-7xl mx-auto">
+            <h3 className="text-3xl font-bold text-center text-gray-900 mb-16">Nuestra Responsabilidad Social</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border border-blue-200">
+                <div className="flex gap-4">
+                  <Globe size={28} className="text-blue-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="text-lg font-bold text-gray-900 mb-2">Responsabilidad Ambiental</h4>
+                    <p className="text-gray-700 leading-relaxed">
+                      Implementamos prácticas sostenibles para minimizar nuestro impacto ambiental, apostando por el uso eficiente de recursos y tecnologías limpias.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8 border border-green-200">
+                <div className="flex gap-4">
+                  <Users size={28} className="text-green-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="text-lg font-bold text-gray-900 mb-2">Equipo Humano</h4>
+                    <p className="text-gray-700 leading-relaxed">
+                      Valoramos a nuestros colaboradores y fomentamos un ambiente de trabajo seguro, con cultura organizacional basada en seguridad y salud.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-8 border border-purple-200">
+                <div className="flex gap-4">
+                  <Shield size={28} className="text-purple-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="text-lg font-bold text-gray-900 mb-2">Satisfacción del Cliente</h4>
+                    <p className="text-gray-700 leading-relaxed">
+                      Trabajamos para superar las expectativas de nuestros clientes, garantizando calidad, puntualidad y confianza en cada operación.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-8 border border-yellow-200">
+                <div className="flex gap-4">
+                  <Zap size={28} className="text-yellow-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="text-lg font-bold text-gray-900 mb-2">Desarrollo Social</h4>
+                    <p className="text-gray-700 leading-relaxed">
+                      Contribuimos al crecimiento del país mediante la generación de empleo formal y apoyo a las comunidades donde operamos.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* RUC Footer */}
+        <section className="bg-gray-900 py-12 px-6">
+          <div className="max-w-7xl mx-auto text-center">
+            <p className="text-gray-300 text-lg">
+              <span className="text-yellow-400 font-bold">RUC:</span> 20614054108
             </p>
           </div>
-
-          {/* Vision */}
-          <div className="bg-gradient-to-br from-yellow-600 to-yellow-700 rounded-lg p-8 hover:shadow-2xl transition-all">
-            <div className="flex items-center gap-3 mb-4">
-              <Zap size={32} className="text-white" />
-              <h3 className="text-2xl font-bold">Visión 2030</h3>
-            </div>
-            <p className="text-gray-100 leading-relaxed">
-              Ser una organización sólida capaz de brindar soluciones operativas a una amplia variedad de clientes. 
-              Expandir nuestra flota a 50 unidades equipadas y contar con un almacén especializado, adaptado a las 
-              necesidades de nuestros clientes.
-            </p>
-          </div>
-        </div>
-
-        {/* Values */}
-        <div className="mb-20">
-          <h3 className="text-3xl font-bold text-center mb-12">Nuestros Valores</h3>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-blue-800 rounded-lg p-8 text-center hover:bg-blue-700 transition-all">
-              <Heart size={40} className="text-red-400 mx-auto mb-4" />
-              <h4 className="text-xl font-bold mb-3">Integridad</h4>
-              <p className="text-gray-100 text-sm">
-                Cumplimos con lo que prometemos, defendiendo la propiedad de nuestros clientes con ética y lealtad.
-              </p>
-            </div>
-
-            <div className="bg-blue-800 rounded-lg p-8 text-center hover:bg-blue-700 transition-all">
-              <Users size={40} className="text-green-400 mx-auto mb-4" />
-              <h4 className="text-xl font-bold mb-3">Respeto Mutuo</h4>
-              <p className="text-gray-100 text-sm">
-                Tratamos a nuestros colaboradores y clientes con dignidad y consideración en todo momento.
-              </p>
-            </div>
-
-            <div className="bg-blue-800 rounded-lg p-8 text-center hover:bg-blue-700 transition-all">
-              <Shield size={40} className="text-yellow-400 mx-auto mb-4" />
-              <h4 className="text-xl font-bold mb-3">Compromiso</h4>
-              <p className="text-gray-100 text-sm">
-                Asumimos la responsabilidad de nuestras acciones, tomando decisiones con cuidado y atención.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Responsibility */}
-        <div className="bg-gradient-to-r from-blue-800 via-blue-900 to-blue-950 rounded-lg p-12">
-          <h3 className="text-3xl font-bold text-white mb-8 text-center">
-            Nuestra Responsabilidad Social
-          </h3>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="flex gap-4">
-              <Globe size={24} className="text-yellow-400 flex-shrink-0 mt-1" />
-              <div>
-                <h4 className="font-bold text-lg text-white mb-2">Responsabilidad Ambiental</h4>
-                <p className="text-gray-200">
-                  Implementamos prácticas sostenibles para minimizar nuestro impacto ambiental, apostando por 
-                  el uso eficiente de recursos y tecnologías limpias.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <Users size={24} className="text-yellow-400 flex-shrink-0 mt-1" />
-              <div>
-                <h4 className="font-bold text-lg text-white mb-2">Equipo Humano</h4>
-                <p className="text-gray-200">
-                  Valoramos a nuestros colaboradores y fomentamos un ambiente de trabajo seguro, con cultura 
-                  organizacional basada en seguridad y salud.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <Shield size={24} className="text-yellow-400 flex-shrink-0 mt-1" />
-              <div>
-                <h4 className="font-bold text-lg text-white mb-2">Satisfacción del Cliente</h4>
-                <p className="text-gray-200">
-                  Trabajamos para superar las expectativas de nuestros clientes, garantizando calidad, 
-                  puntualidad y confianza en cada operación.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <Zap size={24} className="text-yellow-400 flex-shrink-0 mt-1" />
-              <div>
-                <h4 className="font-bold text-lg text-white mb-2">Desarrollo Social</h4>
-                <p className="text-gray-200">
-                  Contribuimos al crecimiento del país mediante la generación de empleo formal y apoyo a 
-                  las comunidades donde operamos.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Contact Info */}
-        <div className="mt-16 text-center">
-          <p className="text-gray-400 text-lg">
-            <span className="text-yellow-400 font-bold">RUC:</span> 20614054108
-          </p>
-        </div>
+        </section>
       </div>
-    </section>
+    </>
   );
 }
