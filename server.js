@@ -11,8 +11,9 @@ const port = process.env.PORT || 3000;
 // Servir archivos estáticos
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// Todas las rutas devuelven index.html
-app.get('*', (req, res) => {
+// Todas las rutas devuelven index.html (para React Router)
+// Usando regex en lugar de '*' para Express 5
+app.get(/^\/(?!.*\.).*$/, (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
