@@ -2,7 +2,6 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import { MapPin, Mail, Phone, MessageCircle, Clock, CheckCircle } from "lucide-react";
 import { useState } from "react";
-import fondo from "@/assets/fondo.png";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -53,7 +52,7 @@ ${formData.message}
         <div 
           className="relative -mx-4 sm:-mx-6 overflow-hidden mb-12 sm:mb-16 md:mb-24 h-48 sm:h-64 md:h-96 flex flex-col justify-between bg-cover bg-center group w-screen"
           style={{
-            backgroundImage: `url(${fondo})`,
+            backgroundImage: 'url(/assets/fondo.png)',
             backgroundAttachment: 'fixed',
             backgroundSize: 'cover'
           }}

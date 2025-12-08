@@ -3,13 +3,6 @@ import Footer from './Footer';
 import { ChevronLeft, ChevronRight, Zap, Shield, TrendingUp, CheckCircle, Truck, Gauge, Fuel } from "lucide-react";
 import { useState, useEffect } from "react";
 
-// Importar todas las imágenes de camiones
-import camion2 from "@/assets/camion2.png";
-import camion3 from "@/assets/camion 3.png";
-import camion4 from "@/assets/camion 4.png";
-import camion5th from "@/assets/camion5th.png";
-import fondo from "@/assets/fondo.png";
-
 export default function Fleet() {
   const [activeCategory, setActiveCategory] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
@@ -20,7 +13,7 @@ export default function Fleet() {
       description: "Ideal para cargas pequeñas y medianas con máxima maniobrabilidad en ciudades",
       capacity: "5 Tn",
       volume: "20-40 M³",
-      image: camion5th,
+      image: "/assets/camion5th.png",
       color: "from-blue-600 to-cyan-600",
       bgGradient: "from-blue-900/20 to-cyan-900/20",
       accentColor: "blue",
@@ -36,7 +29,7 @@ export default function Fleet() {
       description: "Transporte versátil y confiable para la mayoría de cargas comerciales",
       capacity: "7-15 Tn",
       volume: "60-95 M³",
-      image: camion2,
+      image: "/assets/camion2.png",
       color: "from-yellow-600 to-orange-600",
       bgGradient: "from-yellow-900/20 to-orange-900/20",
       accentColor: "yellow",
@@ -52,7 +45,7 @@ export default function Fleet() {
       description: "Gran volumen y eficiencia para cargas de gran dimensión",
       capacity: "7-15 Tn",
       volume: "100-170 M³",
-      image: camion3,
+      image: "/assets/camion 3.png",
       color: "from-green-600 to-emerald-600",
       bgGradient: "from-green-900/20 to-emerald-900/20",
       accentColor: "green",
@@ -68,7 +61,7 @@ export default function Fleet() {
       description: "Para carga pesada especializada con máxima seguridad y estabilidad",
       capacity: "15-30 Tn",
       volume: "90-120 M³",
-      image: camion4,
+      image: "/assets/camion 4.png",
       color: "from-red-600 to-pink-600",
       bgGradient: "from-red-900/20 to-pink-900/20",
       accentColor: "red",
@@ -119,7 +112,7 @@ export default function Fleet() {
         <div 
           className="relative w-full overflow-hidden mb-12 sm:mb-16 md:mb-24 h-48 sm:h-64 md:h-96 flex flex-col justify-between bg-cover bg-center group"
           style={{
-            backgroundImage: `url(${fondo})`,
+            backgroundImage: 'url(/assets/imagen2.0.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}

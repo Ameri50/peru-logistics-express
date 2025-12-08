@@ -1,7 +1,6 @@
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { Heart, Target, Zap, Users, Globe, Shield, CheckCircle } from "lucide-react";
-import fondo from "@/assets/fondo.png";
 
 export default function About() {
   return (
@@ -12,7 +11,7 @@ export default function About() {
         <div 
           className="relative -mx-4 sm:-mx-6 overflow-hidden mb-12 sm:mb-20 md:mb-24 h-48 sm:h-64 md:h-96 flex flex-col justify-between bg-cover bg-center group w-screen"
           style={{
-            backgroundImage: `url(${fondo})`,
+            backgroundImage: 'url(/assets/fondo.png)',
             backgroundAttachment: 'fixed',
             backgroundSize: 'cover'
           }}

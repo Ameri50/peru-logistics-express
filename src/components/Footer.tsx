@@ -1,5 +1,4 @@
 import { Facebook, Linkedin, MessageCircle, Phone, Mail, MapPin, Clock, Shield } from "lucide-react";
-import logo from "@/assets/aqui.png";
 
 export default function Footer() {
   const whatsappNumber = "51923987360";
@@ -14,7 +13,7 @@ export default function Footer() {
           <div>
             {/* Logo Section */}
             <div className="mb-4 sm:mb-6 md:mb-8 flex items-center gap-3 sm:gap-4">
-              <img src={logo} alt="HURIANKA Logo" className="h-12 sm:h-14 md:h-16 lg:h-20 object-contain" />
+              <img src="/assets/aqui.png" alt="HURIANKA Logo" className="h-12 sm:h-14 md:h-16 lg:h-20 object-contain" />
               <div>
                 <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">HURIANKA</h2>
                 <p className="text-yellow-400 text-xs sm:text-sm">S.A.C.</p>
