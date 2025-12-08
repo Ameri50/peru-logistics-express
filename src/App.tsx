@@ -22,12 +22,12 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/fleet" element={<Fleet />} />
-          <Route path="/technology" element={<Technology />} />
-          <Route path="/insurance" element={<Insurance />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/nosotros" element={<About />} />
+          <Route path="/servicios" element={<Services />} />
+          <Route path="/flota" element={<Fleet />} />
+          <Route path="/tecnologia" element={<Technology />} />
+          <Route path="/seguro" element={<Insurance />} />
+          <Route path="/contacto" element={<Contact />} />
           {/* catch-all */}
           <Route path="*" element={<NotFound />} />
         </Routes>

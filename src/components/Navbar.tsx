@@ -9,12 +9,12 @@ export default function Navbar() {
 
   const navigation = [
     { label: 'Inicio', path: '/' },
-    { label: 'Nosotros', path: '/about' },
-    { label: 'Servicios', path: '/services' },
-    { label: 'Flota', path: '/fleet' },
-    { label: 'Tecnología', path: '/technology' },
-    { label: 'Seguro', path: '/insurance' },
-    { label: 'Contacto', path: '/contact' }
+    { label: 'Nosotros', path: '/nosotros' },
+    { label: 'Servicios', path: '/servicios' },
+    { label: 'Flota', path: '/flota' },
+    { label: 'Tecnología', path: '/tecnologia' },
+    { label: 'Seguro', path: '/seguro' },
+    { label: 'Contacto', path: '/contacto' }
   ];
 
   const handleSearch = (e: React.FormEvent) => {
@@ -22,17 +22,17 @@ export default function Navbar() {
     let targetPath = '/';
     
     if (searchQuery.toLowerCase().includes('servicio')) {
-      targetPath = '/services';
+      targetPath = '/servicios';
     } else if (searchQuery.toLowerCase().includes('flota')) {
-      targetPath = '/fleet';
+      targetPath = '/flota';
     } else if (searchQuery.toLowerCase().includes('tecnolog')) {
-      targetPath = '/technology';
+      targetPath = '/tecnologia';
     } else if (searchQuery.toLowerCase().includes('seguro')) {
-      targetPath = '/insurance';
+      targetPath = '/seguro';
     } else if (searchQuery.toLowerCase().includes('contacto')) {
-      targetPath = '/contact';
+      targetPath = '/contacto';
     } else if (searchQuery.toLowerCase().includes('nosotros')) {
-      targetPath = '/about';
+      targetPath = '/nosotros';
     }
     
     window.location.href = targetPath;
