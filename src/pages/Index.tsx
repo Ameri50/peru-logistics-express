@@ -1,7 +1,5 @@
 import Navbar from '@/components/Navbar';
 import { Truck, Shield, Clock, CheckCircle, Zap, MapPin } from 'lucide-react';
-import camion2 from "@/assets/camion2.png";
-import camion3 from "@/assets/camion 3.png";
 
 export default function Index() {
   const highlights = [
@@ -107,10 +105,10 @@ export default function Index() {
               {/* Fleet Images */}
               <div className="grid grid-cols-2 gap-6">
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 flex items-center justify-center h-48 shadow-md hover:shadow-lg transition-all">
-                  <img src={camion2} alt="Camión 7-15 Tn" className="w-full h-full object-contain" />
+                  <img src="/assets/camion2.png" alt="Camión 7-15 Tn" className="w-full h-full object-contain" />
                 </div>
                 <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 flex items-center justify-center h-48 shadow-md hover:shadow-lg transition-all">
-                  <img src={camion3} alt="Camión XL" className="w-full h-full object-contain" />
+                  <img src="/assets/camion3.png" alt="Camión XL" className="w-full h-full object-contain" />
                 </div>
               </div>
 

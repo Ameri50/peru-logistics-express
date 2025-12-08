@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { MessageCircle, Menu, X, Search as SearchIcon } from 'lucide-react';
-import logo from '@/assets/logo.png';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -45,7 +44,7 @@ export default function Navbar() {
         <div className="w-full px-4 sm:px-6 lg:px-8 py-1">
           <div className="flex items-center justify-between">
             <a href="/" className="flex items-center hover:opacity-80 transition">
-              <img src={logo} alt="HURIANKA" className="h-28 w-28 object-contain" />
+              <img src="/assets/logo.png" alt="HURIANKA" className="h-28 w-28 object-contain" />
             </a>
 
             <nav className="hidden md:flex items-center gap-6 text-gray-800 text-base font-medium">
