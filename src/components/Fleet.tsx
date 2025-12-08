@@ -114,32 +114,31 @@ export default function Fleet() {
           <div className="absolute bottom-20 left-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
-          {/* Header Section with Background Image */}
-          <div 
-            className="relative -mx-4 md:-mx-6 overflow-hidden mb-24 h-80 md:h-96 flex flex-col justify-between bg-cover bg-center group w-screen"
-            style={{
-              backgroundImage: 'url(https://img.freepik.com/fotos-premium/contenedores-carga-apilados-fondo-mar_592721-1049.jpg)',
-              backgroundAttachment: 'fixed',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
-            }}
-          >
-            {/* Overlay suave */}
-            <div className="absolute inset-0 bg-black/20"></div>
+        {/* Header Section with Background Image */}
+        <div 
+          className="relative w-full overflow-hidden mb-24 h-80 md:h-96 flex flex-col justify-between bg-cover bg-center group"
+          style={{
+            backgroundImage: 'url(https://img.freepik.com/fotos-premium/contenedores-carga-apilados-fondo-mar_592721-1049.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        >
+          {/* Overlay suave */}
+          <div className="absolute inset-0 bg-black/20"></div>
 
-            {/* Content - Centered Title */}
-            <div className="relative z-10 flex items-center justify-center h-full">
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white drop-shadow-lg">
-                Nuestra Flota
-              </h2>
-            </div>
-
-            {/* Bottom Section - Breadcrumb */}
-            <div className="relative z-10 px-6 md:px-8 py-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
-            </div>
+          {/* Content - Centered Title */}
+          <div className="relative z-10 flex items-center justify-center h-full">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white drop-shadow-lg">
+              Nuestra Flota
+            </h2>
           </div>
 
+          {/* Bottom Section - Breadcrumb */}
+          <div className="relative z-10 px-6 md:px-8 py-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+          </div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
           {/* Biography Section */}
           <div className="text-center mb-24 max-w-4xl mx-auto">
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
