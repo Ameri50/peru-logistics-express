@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: peru-logistics-express
+    buildCommand: bun install && bun run build
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
