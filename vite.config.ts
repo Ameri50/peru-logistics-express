@@ -18,4 +18,5 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: 'dist',
   },
+  publicDir: 'public', // Asegura que Vite copie todo de public/ a dist/
 }));
