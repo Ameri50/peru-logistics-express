@@ -1,4 +1,5 @@
 import Navbar from './Navbar';
+import Footer from './Footer';
 import { MapPin, Mail, Phone, MessageCircle, Clock, CheckCircle } from "lucide-react";
 import { useState } from "react";
 
@@ -46,16 +47,56 @@ ${formData.message}
   return (
     <>
       <Navbar />
-      <div className="pt-32">
-        {/* Header */}
-        <section className="bg-gradient-to-b from-blue-50 to-white py-16 px-6">
-          <div className="max-w-7xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+      <div className="pt-20">
+        {/* Header Banner with Background Image */}
+        <div 
+          className="relative -mx-4 md:-mx-6 overflow-hidden mb-24 h-80 md:h-96 flex flex-col justify-between bg-cover bg-center group w-screen"
+          style={{
+            backgroundImage: 'url(https://img.freepik.com/fotos-premium/contenedores-carga-apilados-fondo-mar_592721-1049.jpg)',
+            backgroundAttachment: 'fixed',
+            backgroundSize: 'cover'
+          }}
+        >
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/30"></div>
+          
+          {/* Title */}
+          <div className="relative flex items-center justify-center flex-1">
+            <h1 className="text-5xl md:text-6xl font-bold text-white drop-shadow-lg text-center px-6">
               Contáctanos
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Estamos listos para atender tus necesidades logísticas. Completa el formulario y nuestro equipo se pondrá en contacto contigo pronto.
-            </p>
+            </h1>
+          </div>
+          
+          {/* Breadcrumb */}
+         
+        </div>
+
+        {/* Descripción */}
+        <section className="px-6 mb-20">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
+                Estamos listos para atender tus necesidades logísticas. Con más de una década de experiencia en transporte especializado, contamos con soluciones integrales para tu empresa.
+              </p>
+              <div className="grid md:grid-cols-4 gap-6 mt-8">
+                <div className="bg-blue-50 rounded-lg p-6 border border-blue-200">
+                  <p className="text-3xl font-bold text-blue-600 mb-2">24/7</p>
+                  <p className="text-sm text-gray-600">Seguimiento de carga en tiempo real</p>
+                </div>
+                <div className="bg-green-50 rounded-lg p-6 border border-green-200">
+                  <p className="text-3xl font-bold text-green-600 mb-2">50+</p>
+                  <p className="text-sm text-gray-600">Unidades especializadas</p>
+                </div>
+                <div className="bg-yellow-50 rounded-lg p-6 border border-yellow-200">
+                  <p className="text-3xl font-bold text-yellow-600 mb-2">$12M</p>
+                  <p className="text-sm text-gray-600">Cobertura de seguros anual</p>
+                </div>
+                <div className="bg-purple-50 rounded-lg p-6 border border-purple-200">
+                  <p className="text-3xl font-bold text-purple-600 mb-2">Lima</p>
+                  <p className="text-sm text-gray-600">Cobertura nacional completa</p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -246,6 +287,8 @@ ${formData.message}
             </div>
           </div>
         </section>
+
+        <Footer />
       </div>
     </>
   );

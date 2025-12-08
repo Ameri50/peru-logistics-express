@@ -1,4 +1,5 @@
 import Navbar from './Navbar';
+import Footer from './Footer';
 import { ChevronLeft, ChevronRight, Zap, Shield, TrendingUp, CheckCircle, Truck, Gauge, Fuel } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -106,7 +107,7 @@ export default function Fleet() {
   return (
     <>
       <Navbar />
-      <div className="pt-32 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 min-h-screen overflow-hidden">
+      <div className="pt-20 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 min-h-screen overflow-hidden">
         {/* Animated background elements */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -114,19 +115,56 @@ export default function Fleet() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
-          {/* Header Section */}
-          <div className="text-center mb-24">
-            <div className="inline-block mb-6 px-4 py-2 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 border border-blue-500/30 rounded-full">
-              <p className="text-blue-300 text-sm font-semibold">🚚 FLOTA PREMIUM</p>
+          {/* Header Section with Background Image */}
+          <div 
+            className="relative -mx-4 md:-mx-6 overflow-hidden mb-24 h-80 md:h-96 flex flex-col justify-between bg-cover bg-center group w-screen"
+            style={{
+              backgroundImage: 'url(https://img.freepik.com/fotos-premium/contenedores-carga-apilados-fondo-mar_592721-1049.jpg)',
+              backgroundAttachment: 'fixed',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          >
+            {/* Overlay suave */}
+            <div className="absolute inset-0 bg-black/20"></div>
+
+            {/* Content - Centered Title */}
+            <div className="relative z-10 flex items-center justify-center h-full">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white drop-shadow-lg">
+                Nuestra Flota
+              </h2>
             </div>
 
-            <h2 className="text-6xl md:text-7xl font-black bg-gradient-to-r from-blue-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent mb-6 leading-tight">
-              Nuestra Flota
-            </h2>
+            {/* Bottom Section - Breadcrumb */}
+            <div className="relative z-10 px-6 md:px-8 py-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+            </div>
+          </div>
 
-            <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          {/* Biography Section */}
+          <div className="text-center mb-24 max-w-4xl mx-auto">
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
               Unidades especializadas, modernas y equipadas con tecnología de punta. Cada camión está diseñado para máxima seguridad, eficiencia y confiabilidad en tus cargas más importantes.
             </p>
+            
+            {/* Stats Grid */}
+            <div className="grid md:grid-cols-4 gap-4">
+              <div className="bg-blue-500/20 border border-blue-500/30 rounded-lg p-6 backdrop-blur-sm hover:border-blue-500/60 transition-all">
+                <p className="text-3xl font-bold text-blue-300 mb-2">15+</p>
+                <p className="text-sm text-gray-300">Unidades en operación</p>
+              </div>
+              <div className="bg-cyan-500/20 border border-cyan-500/30 rounded-lg p-6 backdrop-blur-sm hover:border-cyan-500/60 transition-all">
+                <p className="text-3xl font-bold text-cyan-300 mb-2">50+</p>
+                <p className="text-sm text-gray-300">Destinos cubiertos</p>
+              </div>
+              <div className="bg-green-500/20 border border-green-500/30 rounded-lg p-6 backdrop-blur-sm hover:border-green-500/60 transition-all">
+                <p className="text-3xl font-bold text-green-300 mb-2">99.9%</p>
+                <p className="text-sm text-gray-300">Puntualidad garantizada</p>
+              </div>
+              <div className="bg-purple-500/20 border border-purple-500/30 rounded-lg p-6 backdrop-blur-sm hover:border-purple-500/60 transition-all">
+                <p className="text-3xl font-bold text-purple-300 mb-2">24/7</p>
+                <p className="text-sm text-gray-300">GPS y monitoreo</p>
+              </div>
+            </div>
           </div>
 
           {/* Main Carousel */}
@@ -334,6 +372,8 @@ export default function Fleet() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </>
   );
 }

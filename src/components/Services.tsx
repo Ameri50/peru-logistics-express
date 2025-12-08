@@ -1,5 +1,6 @@
 import Navbar from './Navbar';
-import { Truck, Package, Warehouse, MapPin, Shield, Clock, ArrowRight, CheckCircle, X } from "lucide-react";
+import Footer from './Footer';
+import { ArrowRight, CheckCircle, X } from "lucide-react";
 import { useState } from "react";
 
 export default function Services() {
@@ -7,104 +8,110 @@ export default function Services() {
 
   const services = [
     {
-      icon: Truck,
       title: "Transporte de Carga Pesada",
       description: "Soluciones especializadas para cargas pesadas y sobredimensionadas con equipos de última generación.",
       color: "from-red-600 to-red-700",
       bgColor: "from-red-50 to-red-100",
+      image: "🚚",
       features: ["Equipos modernos", "Profesionales especializados"],
       fullDescription: "Nuestro servicio de transporte de carga pesada está diseñado para manejar cargas excepcionales y sobredimensionadas. Contamos con equipos especializados, conductores certificados y seguros completos para garantizar que tu carga llegue de forma segura.",
+      capacidad: "15 - 30 Tn | 90 - 120 M³",
       details: [
         "Cargas hasta 30 toneladas",
         "Equipos con sistemas de amortiguación avanzados",
         "Conductores especializados en carga pesada",
         "Rutas optimizadas según peso y dimensiones",
         "Permisos especiales incluidos",
-        "Seguro de carga completo"
+        "Seguro de carga completo hasta US$ 300k"
       ]
     },
     {
-      icon: Package,
       title: "Transporte Primario",
       description: "Servicios de transporte desde Lima hacia diversos lugares del país con máxima seguridad.",
       color: "from-blue-600 to-blue-700",
       bgColor: "from-blue-50 to-blue-100",
+      image: "🚛",
       features: ["Cobertura nacional", "Seguridad garantizada"],
       fullDescription: "Transporte inicial de mercancías desde Lima a nivel nacional. Incluye recolección, carga y traslado con monitoreo GPS continuo y seguros que cubren toda la operación.",
+      capacidad: "7 - 15 Tn | 60 - 95 M³ a 100 - 170 M³",
       details: [
         "Cobertura en todo el Perú",
         "Recolección desde tu almacén",
         "Rutas consolidadas eficientes",
         "Monitoreo GPS en tiempo real",
         "Seguimiento de documentación",
-        "Atención personalizada"
+        "Atención personalizada 24/7"
       ]
     },
     {
-      icon: MapPin,
       title: "Reparto - Última Milla",
       description: "Distribución final de mercancías a diferentes zonas del país con entrega puntual garantizada.",
       color: "from-green-600 to-green-700",
       bgColor: "from-green-50 to-green-100",
+      image: "🚐",
       features: ["Entrega puntual", "Cobertura completa"],
       fullDescription: "Servicio de distribución de última milla con entregas puerta a puerta. Optimizamos tiempos y costos para garantizar que tu carga llegue a destino en el tiempo acordado.",
+      capacidad: "5 Tn | 20 - 40 M³",
       details: [
         "Entregas puerta a puerta",
-        "Confirmación fotográfica",
+        "Confirmación fotográfica de entrega",
         "Distribuimos en zonas difíciles",
         "Horarios flexibles",
         "Manejo cuidadoso de mercancías",
-        "Reportes detallados de entregas"
+        "Reportes detallados y rastreables"
       ]
     },
     {
-      icon: Warehouse,
       title: "Almacenaje Transitorio",
       description: "Espacios seguros para almacenamiento temporal de tu carga con control de inventario.",
       color: "from-yellow-600 to-yellow-700",
       bgColor: "from-yellow-50 to-yellow-100",
+      image: "🏢",
       features: ["Espacios seguros", "Control de inventario"],
-      fullDescription: "Contamos con almacenes estratégicamente ubicados para resguardo temporal de mercancías. Incluye vigilancia 24/7, control de inventario y gestión documental.",
+      fullDescription: "Contamos con almacenes estratégicamente ubicados en Av. Simón Bolívar 450 - interior 1002, Santa Clara, Ate, Lima. Incluye vigilancia 24/7, control de inventario y gestión documental.",
+      capacidad: "Capacidad según necesidad",
       details: [
         "Almacenes climatizados disponibles",
         "Vigilancia con CCTV 24/7",
-        "Sistema de control de inventario",
-        "Gestión de documentación",
-        "Seguro incluido",
-        "Acceso flexible según necesidad"
+        "Sistema de control de inventario automatizado",
+        "Gestión completa de documentación",
+        "Seguro de mercancías incluido",
+        "Acceso flexible según necesidad operativa"
       ]
     },
     {
-      icon: Package,
       title: "Cross Docking",
       description: "Servicio de transferencia rápida de mercancías entre unidades de transporte.",
       color: "from-purple-600 to-purple-700",
       bgColor: "from-purple-50 to-purple-100",
+      image: "🔄",
       features: ["Transferencia rápida", "Eficiencia operativa"],
-      fullDescription: "Optimiza tu logística con nuestro servicio de Cross Docking. Transferencia inmediata de carga entre unidades sin almacenamiento prolongado, reduciendo costos y tiempos.",
+      fullDescription: "Optimiza tu logística con nuestro servicio de Cross Docking. Transferencia inmediata de carga entre unidades sin almacenamiento prolongado, reduciendo costos y tiempos de operación.",
+      capacidad: "Múltiples unidades disponibles",
       details: [
         "Transferencia en menos de 4 horas",
-        "Sin manipulación excesiva",
-        "Reducción de costos operativos",
-        "Disponible 24/7",
+        "Sin manipulación excesiva de carga",
+        "Reducción significativa de costos operativos",
+        "Disponible 24/7 x 365 días",
         "Coordinación con múltiples transportistas",
-        "Rastreo en cada etapa"
+        "Rastreo GPS en cada etapa"
       ]
     },
     {
-      icon: Clock,
       title: "Seguimiento 24/7",
       description: "Tracking GPS en tiempo real de tus envíos con atención personalizada las 24 horas.",
       color: "from-cyan-600 to-cyan-700",
       bgColor: "from-cyan-50 to-cyan-100",
+      image: "📍",
       features: ["Monitoreo en vivo", "Atención 24/7"],
-      fullDescription: "Mantén control total de tus envíos con nuestro sistema de seguimiento avanzado. Acceso web en tiempo real y alertas automáticas para cada etapa del transporte.",
+      fullDescription: "Mantén control total de tus envíos con nuestro sistema de seguimiento avanzado. Acceso web en tiempo real, cumplimiento de Lead Time garantizado y gestión de prevención integral.",
+      capacidad: "Cobertura total nacional",
       details: [
-        "GPS en tiempo real 24/7",
+        "GPS en tiempo real 24 x 7 x 365",
         "Acceso web desde cualquier dispositivo",
         "Alertas automáticas de eventos",
         "Historial completo de rutas",
-        "Estimación de llegada precisa",
+        "Cumplimiento de Lead Time garantizado",
         "Soporte técnico permanente"
       ]
     }
@@ -113,24 +120,67 @@ export default function Services() {
   return (
     <>
       <Navbar />
-      <div className="pt-32">
+      
+      <div className="pt-20">
+        {/* Header Section with Background Image */}
+        <div 
+          className="relative -mx-4 md:-mx-6 overflow-hidden mb-24 h-80 md:h-96 flex flex-col justify-between bg-cover bg-center group w-screen"
+          style={{
+            backgroundImage: 'url(https://img.freepik.com/fotos-premium/contenedores-carga-apilados-fondo-mar_592721-1049.jpg)',
+            backgroundAttachment: 'fixed',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        >
+          {/* Overlay suave */}
+          <div className="absolute inset-0 bg-black/20"></div>
+
+          {/* Content - Centered Title */}
+          <div className="relative z-10 flex items-center justify-center h-full">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white drop-shadow-lg">
+              Nuestros Servicios
+            </h2>
+          </div>
+
+          {/* Bottom Section - Breadcrumb */}
+          <div className="relative z-10 px-6 md:px-8 py-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+          </div>
+        </div>
+      </div>
+
+      {/* Biography Section */}
+      <div className="px-6 mb-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8 max-w-3xl mx-auto">
+              En Hurianka S.A.C., brindamos soluciones logísticas especializadas en el transporte y distribución de carga a nivel nacional con tecnología, profesionalismo y compromiso con la seguridad.
+            </p>
+            
+            {/* Stats Grid - Solo Texto */}
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 hover:shadow-lg transition-all">
+                <p className="text-3xl font-bold text-blue-600 mb-2">6</p>
+                <p className="text-sm text-gray-600">Servicios especializados</p>
+              </div>
+              <div className="bg-green-50 border border-green-200 rounded-lg p-6 hover:shadow-lg transition-all">
+                <p className="text-3xl font-bold text-green-600 mb-2">100%</p>
+                <p className="text-sm text-gray-600">Cobertura nacional</p>
+              </div>
+              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 hover:shadow-lg transition-all">
+                <p className="text-3xl font-bold text-yellow-600 mb-2">Flexible</p>
+                <p className="text-sm text-gray-600">Soluciones adaptadas</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="pt-10 pb-20 px-6">
         <section className="bg-gradient-to-b from-blue-50 to-white py-20 px-6">
           <div className="max-w-7xl mx-auto">
-            {/* Header */}
-            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                Nuestros Servicios
-              </h2>
-              <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-                Brindamos soluciones logísticas especializadas en el transporte y distribución de carga a nivel nacional con tecnología y profesionalismo
-              </p>
-              <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-blue-700 mx-auto mt-6 rounded-full"></div>
-            </div>
-
             {/* Services Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
               {services.map((service, idx) => {
-                const Icon = service.icon;
                 return (
                   <div
                     key={idx}
@@ -144,9 +194,9 @@ export default function Services() {
 
                     {/* Content */}
                     <div className="relative p-8 flex flex-col h-full">
-                      {/* Icon */}
-                      <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.color} text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-md`}>
-                        <Icon size={32} />
+                      {/* Truck Image/Emoji */}
+                      <div className="text-7xl mb-6 group-hover:scale-110 transition-transform">
+                        {service.image}
                       </div>
 
                       {/* Title */}
@@ -155,8 +205,13 @@ export default function Services() {
                       </h3>
 
                       {/* Description */}
-                      <p className="text-gray-700 text-sm leading-relaxed mb-6 flex-1">
+                      <p className="text-gray-700 text-sm leading-relaxed mb-4 flex-1">
                         {service.description}
+                      </p>
+
+                      {/* Capacity Badge */}
+                      <p className="text-xs font-semibold text-gray-500 bg-gray-100 px-3 py-2 rounded-lg mb-4 group-hover:bg-gray-200 transition-colors">
+                        📦 {service.capacidad}
                       </p>
 
                       {/* Features */}
@@ -196,7 +251,7 @@ export default function Services() {
                       ¿Necesitas un servicio personalizado?
                     </h3>
                     <p className="text-blue-200 text-lg leading-relaxed mb-8">
-                      Nuestro equipo de especialistas está listo para adaptar soluciones a tus necesidades específicas y garantizar el éxito de tu logística.
+                      Nuestro equipo de especialistas está listo para adaptar soluciones a tus necesidades específicas y garantizar el éxito de tu logística con máxima seguridad y profesionalismo.
                     </p>
                     
                     <div className="space-y-3">
@@ -241,6 +296,8 @@ export default function Services() {
         </section>
       </div>
 
+      <Footer />
+
       {/* Modal de Detalles del Servicio */}
       {selectedService !== null && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 pt-20 md:pt-0">
@@ -249,14 +306,9 @@ export default function Services() {
             <div className={`bg-gradient-to-r ${services[selectedService].color} p-8 text-white sticky top-0`}>
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-start gap-4">
-                  {(() => {
-                    const Icon = services[selectedService].icon;
-                    return (
-                      <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center">
-                        <Icon size={32} />
-                      </div>
-                    );
-                  })()}
+                  <div className="text-6xl">
+                    {services[selectedService].image}
+                  </div>
                   <div>
                     <h2 className="text-3xl font-bold mb-2">{services[selectedService].title}</h2>
                     <p className="text-white/90">{services[selectedService].description}</p>
@@ -273,6 +325,12 @@ export default function Services() {
 
             {/* Contenido del Modal */}
             <div className="p-8">
+              {/* Capacidad */}
+              <div className="mb-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <p className="text-sm font-semibold text-blue-900">Capacidad disponible:</p>
+                <p className="text-lg font-bold text-blue-700">{services[selectedService].capacidad}</p>
+              </div>
+
               {/* Descripción Completa */}
               <div className="mb-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Descripción</h3>
@@ -287,11 +345,22 @@ export default function Services() {
                 <div className="grid md:grid-cols-2 gap-4">
                   {services[selectedService].details.map((detail, idx) => (
                     <div key={idx} className="flex gap-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all">
-                      <CheckCircle size={24} className={`text-${services[selectedService].color.split('-')[1]}-600 flex-shrink-0 mt-0.5`} />
+                      <CheckCircle size={24} className={`text-blue-600 flex-shrink-0 mt-0.5`} />
                       <span className="text-gray-700 font-medium">{detail}</span>
                     </div>
                   ))}
                 </div>
+              </div>
+
+              {/* Información de Seguros */}
+              <div className="mb-8 p-4 bg-green-50 rounded-lg border border-green-200">
+                <h4 className="font-bold text-green-900 mb-2">Cobertura de Seguros Incluida</h4>
+                <ul className="text-sm text-green-800 space-y-1">
+                  <li>Seguro de carga: US$ 300k por evento / US$ 12M anual</li>
+                  <li>Seguro vehicular completo</li>
+                  <li>Responsabilidad Civil: US$ 1M</li>
+                  <li>SCTR para personal</li>
+                </ul>
               </div>
 
               {/* CTA en Modal */}

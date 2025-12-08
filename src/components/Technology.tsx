@@ -1,4 +1,5 @@
 import Navbar from './Navbar';
+import Footer from './Footer';
 import { Satellite, Clock, CheckCircle, Headphones, Radio, Zap, Shield, TrendingUp } from "lucide-react";
 
 const Technology = () => {
@@ -47,20 +48,68 @@ const Technology = () => {
   return (
     <>
       <Navbar />
-      <div className="pt-32">
+
+      <div className="pt-20">
+        {/* Header Section with Background Image */}
+        <div 
+          className="relative -mx-4 md:-mx-6 overflow-hidden mb-24 h-80 md:h-96 flex flex-col justify-between bg-cover bg-center group w-screen"
+          style={{
+            backgroundImage: 'url(https://img.freepik.com/fotos-premium/contenedores-carga-apilados-fondo-mar_592721-1049.jpg)',
+            backgroundAttachment: 'fixed',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        >
+          {/* Overlay suave */}
+          <div className="absolute inset-0 bg-black/20"></div>
+
+          {/* Content - Centered Title */}
+          <div className="relative z-10 flex items-center justify-center h-full">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white drop-shadow-lg">
+              Tecnología y Control
+            </h2>
+          </div>
+
+          {/* Bottom Section - Breadcrumb */}
+          <div className="relative z-10 px-6 md:px-8 py-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+          </div>
+        </div>
+      </div>
+
+      {/* Biography Section */}
+      <div className="px-6 mb-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-8">
+              Sistemas avanzados de seguimiento y gestión para garantizar la seguridad de tu carga en todo momento. Tecnología de punta integrada en cada unidad.
+            </p>
+            
+            {/* Stats Grid */}
+            <div className="grid md:grid-cols-4 gap-4">
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 hover:shadow-lg transition-all">
+                <p className="text-3xl font-bold text-blue-600 mb-2">365</p>
+                <p className="text-sm text-gray-600">Días de monitoreo anual</p>
+              </div>
+              <div className="bg-green-50 border border-green-200 rounded-lg p-6 hover:shadow-lg transition-all">
+                <p className="text-3xl font-bold text-green-600 mb-2">10s</p>
+                <p className="text-sm text-gray-600">Actualización de GPS</p>
+              </div>
+              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 hover:shadow-lg transition-all">
+                <p className="text-3xl font-bold text-yellow-600 mb-2">99.9%</p>
+                <p className="text-sm text-gray-600">Disponibilidad sistema</p>
+              </div>
+              <div className="bg-purple-50 border border-purple-200 rounded-lg p-6 hover:shadow-lg transition-all">
+                <p className="text-3xl font-bold text-purple-600 mb-2">&lt;1m</p>
+                <p className="text-sm text-gray-600">Tiempo de alerta</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="pt-10 pb-20 px-6">
         <section className="py-20 px-6 bg-gradient-to-b from-gray-50 to-white">
           <div className="max-w-7xl mx-auto relative z-10">
-            {/* Header */}
-            <div className="text-center max-w-3xl mx-auto mb-20">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                Tecnología y Control
-              </h2>
-              <p className="text-xl text-gray-600 leading-relaxed">
-                Sistemas avanzados de seguimiento y gestión para garantizar la seguridad de tu carga
-              </p>
-              <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-blue-700 mx-auto mt-6 rounded-full"></div>
-            </div>
-
             {/* Features Grid */}
             <div className="grid md:grid-cols-2 gap-8 mb-20">
               {features.map((feature, index) => {
@@ -210,6 +259,8 @@ const Technology = () => {
           </div>
         </section>
       </div>
+
+      <Footer />
     </>
   );
 };

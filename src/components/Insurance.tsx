@@ -1,4 +1,5 @@
 import Navbar from './Navbar';
+import Footer from './Footer';
 import { Shield, Truck, AlertTriangle, Heart, CheckCircle } from "lucide-react";
 
 export default function Insurance() {
@@ -79,20 +80,68 @@ export default function Insurance() {
   return (
     <>
       <Navbar />
-      <div className="pt-32">
+
+      <div className="pt-20">
+        {/* Header Section with Background Image */}
+        <div 
+          className="relative -mx-4 md:-mx-6 overflow-hidden mb-24 h-80 md:h-96 flex flex-col justify-between bg-cover bg-center group w-screen"
+          style={{
+            backgroundImage: 'url(https://img.freepik.com/fotos-premium/contenedores-carga-apilados-fondo-mar_592721-1049.jpg)',
+            backgroundAttachment: 'fixed',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        >
+          {/* Overlay suave */}
+          <div className="absolute inset-0 bg-black/20"></div>
+
+          {/* Content - Centered Title */}
+          <div className="relative z-10 flex items-center justify-center h-full">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white drop-shadow-lg">
+              Seguros y Garantías
+            </h2>
+          </div>
+
+          {/* Bottom Section - Breadcrumb */}
+          <div className="relative z-10 px-6 md:px-8 py-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+          </div>
+        </div>
+      </div>
+
+      {/* Biography Section */}
+      <div className="px-6 mb-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-8">
+              Tu carga protegida con las mejores coberturas del mercado. Ofrecemos una cobertura integral con las aseguradoras más confiables del Perú.
+            </p>
+            
+            {/* Stats Grid */}
+            <div className="grid md:grid-cols-4 gap-4">
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 hover:shadow-lg transition-all">
+                <p className="text-3xl font-bold text-blue-600 mb-2">$12M</p>
+                <p className="text-sm text-gray-600">Cobertura anual carga</p>
+              </div>
+              <div className="bg-cyan-50 border border-cyan-200 rounded-lg p-6 hover:shadow-lg transition-all">
+                <p className="text-3xl font-bold text-cyan-600 mb-2">100%</p>
+                <p className="text-sm text-gray-600">Flota asegurada</p>
+              </div>
+              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 hover:shadow-lg transition-all">
+                <p className="text-3xl font-bold text-yellow-600 mb-2">$1M</p>
+                <p className="text-sm text-gray-600">Responsabilidad civil</p>
+              </div>
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6 hover:shadow-lg transition-all">
+                <p className="text-3xl font-bold text-red-600 mb-2">100%</p>
+                <p className="text-sm text-gray-600">Personal cubierto</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="pt-10 pb-20 px-6">
         <section className="bg-gradient-to-b from-gray-50 to-white py-20 px-6">
           <div className="max-w-7xl mx-auto">
-            {/* Header */}
-            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                Seguros y Garantías
-              </h2>
-              <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                Tu carga protegida con las mejores coberturas del mercado
-              </p>
-              <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-blue-700 mx-auto mt-6 rounded-full"></div>
-            </div>
-
             {/* Insurance Cards */}
             <div className="grid md:grid-cols-2 gap-8 mb-20">
               {insurances.map((insurance, idx) => {
@@ -198,6 +247,8 @@ export default function Insurance() {
           </div>
         </section>
       </div>
+
+      <Footer />
     </>
   );
 }

@@ -1,21 +1,61 @@
 import Navbar from './Navbar';
+import Footer from './Footer';
 import { Heart, Target, Zap, Users, Globe, Shield, CheckCircle } from "lucide-react";
 
 export default function About() {
   return (
     <>
       <Navbar />
-      <div className="pt-32">
-        {/* Header Section */}
-        <section className="bg-gradient-to-b from-blue-50 to-white py-16 px-6">
+      <div className="pt-20">
+        {/* Header Banner with Background Image */}
+        <div 
+          className="relative -mx-4 md:-mx-6 overflow-hidden mb-24 h-80 md:h-96 flex flex-col justify-between bg-cover bg-center group w-screen"
+          style={{
+            backgroundImage: 'url(https://img.freepik.com/fotos-premium/contenedores-carga-apilados-fondo-mar_592721-1049.jpg)',
+            backgroundAttachment: 'fixed',
+            backgroundSize: 'cover'
+          }}
+        >
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/30"></div>
+          
+          {/* Title */}
+          <div className="relative flex items-center justify-center flex-1">
+            <h1 className="text-5xl md:text-6xl font-bold text-white drop-shadow-lg text-center px-6">
+              Quiénes Somos
+            </h1>
+          </div>
+          
+         
+        </div>
+
+        {/* Descripción */}
+        <section className="px-6 mb-20">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                Quiénes Somos
-              </h2>
-              <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
                 Hurianka S.A.C. es una empresa dedicada a brindar soluciones logísticas y transporte de carga por carretera, comprometida con la eficiencia, seguridad y sostenibilidad en cada uno de nuestros servicios.
               </p>
+              
+              {/* Stats Grid */}
+              <div className="grid md:grid-cols-4 gap-4">
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 hover:shadow-lg transition-all">
+                  <p className="text-3xl font-bold text-blue-600 mb-2">15+</p>
+                  <p className="text-sm text-gray-600">Años de experiencia</p>
+                </div>
+                <div className="bg-green-50 border border-green-200 rounded-lg p-6 hover:shadow-lg transition-all">
+                  <p className="text-3xl font-bold text-green-600 mb-2">50+</p>
+                  <p className="text-sm text-gray-600">Clientes satisfechos</p>
+                </div>
+                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 hover:shadow-lg transition-all">
+                  <p className="text-3xl font-bold text-yellow-600 mb-2">500+</p>
+                  <p className="text-sm text-gray-600">Entregas anuales</p>
+                </div>
+                <div className="bg-purple-50 border border-purple-200 rounded-lg p-6 hover:shadow-lg transition-all">
+                  <p className="text-3xl font-bold text-purple-600 mb-2">100%</p>
+                  <p className="text-sm text-gray-600">Satisfacción garantizada</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -201,6 +241,8 @@ export default function About() {
             </p>
           </div>
         </section>
+
+        <Footer />
       </div>
     </>
   );
