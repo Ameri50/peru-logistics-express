@@ -11,6 +11,7 @@ export default function Insurance() {
       coverage: "$12M anual",
       color: "from-blue-600 to-blue-700",
       bgColor: "blue",
+      checkColor: "text-blue-600",
       features: [
         "Cobertura contra robo",
         "Cobertura por accidentes",
@@ -27,6 +28,7 @@ export default function Insurance() {
       coverage: "Todas las unidades",
       color: "from-cyan-500 to-blue-600",
       bgColor: "cyan",
+      checkColor: "text-cyan-600",
       features: [
         "Diversos siniestros",
         "Accidentes cubiertos",
@@ -43,6 +45,7 @@ export default function Insurance() {
       coverage: "RC Extracontractual",
       color: "from-yellow-500 to-amber-600",
       bgColor: "yellow",
+      checkColor: "text-yellow-600",
       features: [
         "Cobertura a terceros",
         "Protección jurídica",
@@ -59,6 +62,7 @@ export default function Insurance() {
       coverage: "Cobertura completa",
       color: "from-red-500 to-orange-600",
       bgColor: "red",
+      checkColor: "text-red-600",
       features: [
         "Accidentes de trabajo",
         "Enfermedades profesionales",
@@ -183,7 +187,7 @@ export default function Insurance() {
                       <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-8">
                         {insurance.features.map((feature, i) => (
                           <div key={i} className="flex items-start gap-2 sm:gap-3">
-                            <CheckCircle className={`w-3 sm:w-4 h-3 sm:h-4 flex-shrink-0 mt-0.5 text-${insurance.bgColor}-600`} />
+                            <CheckCircle className={`w-3 sm:w-4 h-3 sm:h-4 flex-shrink-0 mt-0.5 ${insurance.checkColor}`} />
                             <p className="text-xs text-gray-700 leading-snug">{feature}</p>
                           </div>
                         ))}

@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle, X } from "lucide-react";
 import { useState } from "react";
 
 export default function Services() {
-  const [selectedService, setSelectedService] = useState(null);
+  const [selectedService, setSelectedService] = useState<number | null>(null);
 
   const services = [
     {
@@ -126,7 +126,7 @@ export default function Services() {
         <div 
           className="relative -mx-4 sm:-mx-6 overflow-hidden mb-12 sm:mb-16 md:mb-24 h-48 sm:h-64 md:h-96 flex flex-col justify-between bg-cover bg-center group w-screen"
           style={{
-            backgroundImage: 'url(/assets/fondo.png)',
+            backgroundImage: 'url(/assets/imagen2.0.png)',
             backgroundAttachment: 'fixed',
             backgroundSize: 'cover',
             backgroundPosition: 'center'
