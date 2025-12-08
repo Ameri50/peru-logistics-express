@@ -8,6 +8,7 @@ import camion2 from "@/assets/camion2.png";
 import camion3 from "@/assets/camion 3.png";
 import camion4 from "@/assets/camion 4.png";
 import camion5th from "@/assets/camion5th.png";
+import fondo from "@/assets/fondo.png";
 
 export default function Fleet() {
   const [activeCategory, setActiveCategory] = useState(0);
@@ -118,7 +119,7 @@ export default function Fleet() {
         <div 
           className="relative w-full overflow-hidden mb-12 sm:mb-16 md:mb-24 h-48 sm:h-64 md:h-96 flex flex-col justify-between bg-cover bg-center group"
           style={{
-            backgroundImage: 'url(https://img.freepik.com/fotos-premium/contenedores-carga-apilados-fondo-mar_592721-1049.jpg)',
+            backgroundImage: `url(${fondo})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
@@ -240,6 +241,7 @@ export default function Fleet() {
                     src={current.image}
                     alt={current.name}
                     className="w-full h-full object-contain p-3 sm:p-4 md:p-6 lg:p-10 transform group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
                   />
                 </div>
 
@@ -319,6 +321,7 @@ export default function Fleet() {
                   src={category.image}
                   alt={category.name}
                   className="w-full h-full object-contain p-2 sm:p-4 md:p-6 group-hover:scale-125 transition-transform duration-500 relative z-10"
+                  loading="lazy"
                 />
 
                 <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-20">
