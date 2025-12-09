@@ -12,8 +12,8 @@ export default function About() {
           className="relative -mx-4 sm:-mx-6 overflow-hidden mb-12 sm:mb-20 md:mb-24 h-48 sm:h-64 md:h-96 flex flex-col justify-between bg-cover bg-center group w-screen"
           style={{
             backgroundImage: 'url(/assets/imagen2.0.png)',
-            backgroundAttachment: 'fixed',
-            backgroundSize: 'cover'
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
           }}
         >
           {/* Dark Overlay */}
