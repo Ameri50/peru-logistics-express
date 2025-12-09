@@ -40,35 +40,35 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm border-b border-gray-200">
-        <div className="w-full px-4 sm:px-6 lg:px-8 py-3">
+      <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm border-b-2 border-blue-600">
+        <div className="w-full px-6 sm:px-8 lg:px-12 py-6">
           {/* Navegación horizontal con logo en centro */}
-          <div className="flex items-center justify-center gap-3 sm:gap-5 md:gap-8">
+          <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-12">
             {/* Enlaces izquierda */}
-            <nav className="hidden sm:flex items-center gap-2 md:gap-4 text-gray-700">
+            <nav className="hidden md:flex items-center gap-2 lg:gap-6 text-gray-700">
               {navigation.slice(0, 3).map(item => (
                 <a
                   key={item.path}
                   href={item.path}
-                  className="text-sm md:text-base font-medium px-3 md:px-4 py-2 hover:text-blue-600 transition"
+                  className="text-lg lg:text-xl font-semibold px-4 lg:px-6 py-3 hover:text-blue-600 transition border-b-2 border-transparent hover:border-blue-600"
                 >
                   {item.label}
                 </a>
               ))}
             </nav>
 
-            {/* Logo centrado - MÁS GRANDE */}
-            <a href="/" className="flex items-center hover:opacity-80 transition flex-shrink-0 mx-2 sm:mx-4 md:mx-6">
-              <img src="/assets/nuevofondo.png" alt="HURIANKA" className="h-50 w-50 sm:h-40 sm:w-45 md:h-56 md:w-64 object-contain" />
+            {/* Logo centrado - GRANDE */}
+            <a href="/" className="flex items-center hover:opacity-80 transition flex-shrink-0 mx-4 sm:mx-6">
+              <img src="/assets/nuevofondo.png" alt="HURIANKA" className="h-40 w-40 sm:h-48 sm:w-48 md:h-56 md:w-56 object-contain" />
             </a>
 
             {/* Enlaces derecha */}
-            <nav className="hidden sm:flex items-center gap-2 md:gap-4 text-gray-700">
+            <nav className="hidden md:flex items-center gap-2 lg:gap-6 text-gray-700">
               {navigation.slice(3).map(item => (
                 <a
                   key={item.path}
                   href={item.path}
-                  className="text-sm md:text-base font-medium px-3 md:px-4 py-2 hover:text-blue-600 transition"
+                  className="text-lg lg:text-xl font-semibold px-4 lg:px-6 py-3 hover:text-blue-600 transition border-b-2 border-transparent hover:border-blue-600"
                 >
                   {item.label}
                 </a>
@@ -76,38 +76,38 @@ export default function Navbar() {
             </nav>
 
             {/* Iconos búsqueda y menú móvil */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
-                className="text-gray-700 hover:text-blue-600 transition p-1.5 hidden sm:flex"
+                className="text-gray-700 hover:text-blue-600 transition p-2 hidden md:flex"
                 title="Buscar"
               >
-                <SearchIcon size={18} />
+                <SearchIcon size={24} />
               </button>
 
               <button
-                className="sm:hidden text-gray-700 p-1.5"
+                className="md:hidden text-gray-700 p-2"
                 onClick={() => setMenuOpen(!menuOpen)}
               >
-                {menuOpen ? <X size={20} /> : <Menu size={20} />}
+                {menuOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
             </div>
           </div>
 
           {/* Búsqueda expandible */}
           {searchOpen && (
-            <form onSubmit={handleSearch} className="mt-2 pb-1">
-              <div className="flex gap-1">
+            <form onSubmit={handleSearch} className="mt-4 pb-2">
+              <div className="flex gap-2">
                 <input
                   type="text"
                   placeholder="Buscar..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="flex-1 px-3 py-1 rounded bg-gray-100 text-gray-900 placeholder-gray-500 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 text-xs"
+                  className="flex-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-900 placeholder-gray-500 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 text-base"
                 />
                 <button
                   type="submit"
-                  className="px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded transition text-xs"
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition text-base"
                 >
                   Buscar
                 </button>
@@ -117,12 +117,12 @@ export default function Navbar() {
 
           {/* Menú móvil */}
           {menuOpen && (
-            <div className="sm:hidden bg-gray-50 border-t border-gray-200 px-2 py-2 flex flex-col gap-1 text-gray-700 text-xs mt-2">
+            <div className="md:hidden bg-gray-50 border-t border-gray-200 px-4 py-4 flex flex-col gap-2 text-gray-700 text-lg mt-4">
               {navigation.map(item => (
                 <a
                   key={item.path}
                   href={item.path}
-                  className="text-left py-1 px-2 hover:text-blue-600 hover:bg-gray-100 rounded transition"
+                  className="text-left py-3 px-4 hover:text-blue-600 hover:bg-gray-100 rounded-lg transition font-semibold"
                 >
                   {item.label}
                 </a>
@@ -133,7 +133,7 @@ export default function Navbar() {
       </header>
 
       {/* Espaciador para fixed header */}
-      <div className="h-56"></div>
+      <div className="h-0"></div>
 
       {/* WhatsApp flotante */}
       <a
