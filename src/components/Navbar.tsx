@@ -19,7 +19,7 @@ export default function Navbar() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     let targetPath = '/';
-    
+
     if (searchQuery.toLowerCase().includes('servicio')) {
       targetPath = '/servicios';
     } else if (searchQuery.toLowerCase().includes('flota')) {
@@ -33,7 +33,7 @@ export default function Navbar() {
     } else if (searchQuery.toLowerCase().includes('nosotros')) {
       targetPath = '/nosotros';
     }
-    
+
     window.location.href = targetPath;
     setSearchQuery('');
   };
@@ -41,7 +41,7 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm border-b border-gray-200">
-        <div className="w-full px-4 sm:px-6 lg:px-8 py-4">
+        <div className="w-full px-4 sm:px-6 lg:px-8 py-3">
           {/* Navegación horizontal con logo en centro */}
           <div className="flex items-center justify-center gap-3 sm:gap-5 md:gap-8">
             {/* Enlaces izquierda */}
@@ -57,13 +57,9 @@ export default function Navbar() {
               ))}
             </nav>
 
-            {/* Logo centrado */}
+            {/* Logo centrado - MÁS GRANDE */}
             <a href="/" className="flex items-center hover:opacity-80 transition flex-shrink-0 mx-2 sm:mx-4 md:mx-6">
-              <img src="/assets/aqui.png" alt="HURIANKA" className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 object-contain" />
-              <div className="ml-3">
-                <h1 className="text-base sm:text-lg md:text-xl font-bold text-gray-800">HURIANKA</h1>
-                <p className="text-sm text-blue-600 font-semibold">S.A.C.</p>
-              </div>
+              <img src="/assets/nuevofondo.png" alt="HURIANKA" className="h-50 w-50 sm:h-40 sm:w-45 md:h-56 md:w-64 object-contain" />
             </a>
 
             {/* Enlaces derecha */}
@@ -137,7 +133,7 @@ export default function Navbar() {
       </header>
 
       {/* Espaciador para fixed header */}
-      <div className="h-16"></div>
+      <div className="h-56"></div>
 
       {/* WhatsApp flotante */}
       <a
