@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MessageCircle, Menu, X, Search as SearchIcon } from 'lucide-react';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const navigation = [
     { label: 'Inicio', path: '/' },
@@ -15,6 +17,22 @@ export default function Navbar() {
     { label: 'Seguro', path: '/seguro' },
     { label: 'Contacto', path: '/contacto' }
   ];
+
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      setIsVisible(false);
+    } else {
+      setIsVisible(true);
+    }
+    setLastScrollY(currentScrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lastScrollY]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,35 +58,38 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm border-b-2 border-blue-600">
-        <div className="w-full px-6 sm:px-8 lg:px-12 py-6">
+      <header 
+        className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm border-b-2 border-blue-600 transition-transform duration-300" 
+        style={{transform: isVisible ? 'translateY(0)' : 'translateY(-100%)'}}
+      >
+        <div className="w-full px-6 sm:px-8 lg:px-12 py-3 sm:py-4">
           {/* Navegación horizontal con logo en centro */}
-          <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-12">
+          <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8">
             {/* Enlaces izquierda */}
-            <nav className="hidden md:flex items-center gap-2 lg:gap-6 text-gray-700">
+            <nav className="hidden md:flex items-center gap-2 lg:gap-4 text-gray-700">
               {navigation.slice(0, 3).map(item => (
                 <a
                   key={item.path}
                   href={item.path}
-                  className="text-lg lg:text-xl font-semibold px-4 lg:px-6 py-3 hover:text-blue-600 transition border-b-2 border-transparent hover:border-blue-600"
+                  className="text-sm lg:text-base font-semibold px-3 lg:px-4 py-2 hover:text-blue-600 transition border-b-2 border-transparent hover:border-blue-600"
                 >
                   {item.label}
                 </a>
               ))}
             </nav>
 
-            {/* Logo centrado - GRANDE */}
-            <a href="/" className="flex items-center hover:opacity-80 transition flex-shrink-0 mx-4 sm:mx-6">
-              <img src="/assets/nuevofondo.png" alt="HURIANKA" className="h-40 w-40 sm:h-48 sm:w-48 md:h-56 md:w-56 object-contain" />
+            {/* Logo centrado */}
+            <a href="/" className="flex items-center hover:opacity-80 transition flex-shrink-0 mx-2 sm:mx-4">
+              <img src="/assets/nuevofondo.png" alt="HURIANKA" className="h-24 w-50 sm:h-50 sm:w-60 md:h-50 md:w-70 object-contain" />
             </a>
 
             {/* Enlaces derecha */}
-            <nav className="hidden md:flex items-center gap-2 lg:gap-6 text-gray-700">
+            <nav className="hidden md:flex items-center gap-2 lg:gap-4 text-gray-700">
               {navigation.slice(3).map(item => (
                 <a
                   key={item.path}
                   href={item.path}
-                  className="text-lg lg:text-xl font-semibold px-4 lg:px-6 py-3 hover:text-blue-600 transition border-b-2 border-transparent hover:border-blue-600"
+                  className="text-sm lg:text-base font-semibold px-3 lg:px-4 py-2 hover:text-blue-600 transition border-b-2 border-transparent hover:border-blue-600"
                 >
                   {item.label}
                 </a>
